@@ -1,0 +1,1177 @@
+{
+  "source": "https://github.com/ShapkinProg/ParceVuzopedia/blob/ae2ae0dd662ea75348bcd24393fff207a9b0de02/data.xlsx",
+  "sourceSnapshotDate": "2022-10-14",
+  "addedCount": 195,
+  "records": [
+    {
+      "id": "branch-b4b7433ee1",
+      "name": "Волжский институт экономики, педагогики и права",
+      "cityId": "volzhskiy",
+      "website": "http://viepp.ru/"
+    },
+    {
+      "id": "branch-374faeee3c",
+      "name": "Жуковский филиал «Стрела» Московского авиационного института (национального исследовательского университета)",
+      "cityId": "zhukovskiy",
+      "website": "http://mai.ru/education/strela/"
+    },
+    {
+      "id": "branch-17b0952dc1",
+      "name": "Брянский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "bryansk",
+      "website": "http://rea.ru/ru/org/branches/Pages/bryansk.aspx"
+    },
+    {
+      "id": "branch-88d4e9e07a",
+      "name": "Воронежский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "voronezh",
+      "website": "http://vfreu.ru"
+    },
+    {
+      "id": "branch-080a33c0d9",
+      "name": "Краснодарский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "krasnodar",
+      "website": "http://reakf.ru"
+    },
+    {
+      "id": "branch-b515395c9e",
+      "name": "Новороссийский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "novorossiysk",
+      "website": "http://fa.ru/fil/novoross/pk/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-9be4b3a268",
+      "name": "Омский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "omsk",
+      "website": "http://fa.ru/fil/omsk/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-bddd9e7acd",
+      "name": "Санкт-Петербургский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "saint-petersburg",
+      "website": "http://fa.ru/fil/spb/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-51e5ef560f",
+      "name": "Сочинский филиал Российского университета дружбы народов",
+      "cityId": "sochi",
+      "website": "http://rudn-sochi.ru/"
+    },
+    {
+      "id": "branch-21c15750e6",
+      "name": "Нижегородский институт управления – филиал Российской академии народного хозяйства и государственной службы при Президенте Российской Федерации",
+      "cityId": "nizhny-novgorod",
+      "website": "http://niu.ranepa.ru/"
+    },
+    {
+      "id": "branch-d1e9e18cc5",
+      "name": "Смоленский кооперативный институт (филиал) Российского университета кооперации",
+      "cityId": "smolensk",
+      "website": "http://smolensk.ruc.su/"
+    },
+    {
+      "id": "branch-af70ac12ea",
+      "name": "Волгоградский филиал Московского гуманитарно-экономического университета",
+      "cityId": "volgograd",
+      "website": "http://mgei-volga.ru"
+    },
+    {
+      "id": "branch-1c4cad303a",
+      "name": "Клинский филиал Московского гуманитарно-экономического университета",
+      "cityId": "klin",
+      "website": "http://klinmgei.ru"
+    },
+    {
+      "id": "branch-94f46aa790",
+      "name": "Воронежский институт (филиал) Московского гуманитарно-экономического университета",
+      "cityId": "voronezh",
+      "website": "http://vfmgei.ru/"
+    },
+    {
+      "id": "branch-c08c2ce555",
+      "name": "Нижнекамский филиал Московского гуманитарно-экономического университета",
+      "cityId": "nizhnekamsk",
+      "website": "http://mgeu-nk.ru/"
+    },
+    {
+      "id": "branch-59e0d8869a",
+      "name": "Ставропольский филиал Московского гуманитарно-экономического университета",
+      "cityId": "stavropol",
+      "website": "http://sfmgei.ru"
+    },
+    {
+      "id": "branch-c3b33d815c",
+      "name": "Тверской филиал Московского гуманитарно-экономического университета",
+      "cityId": "tver",
+      "website": "http://mgeitver.ru"
+    },
+    {
+      "id": "branch-85325cdc7b",
+      "name": "Ивангородский гуманитарно-технический институт (филиал) ГУАП",
+      "cityId": "ivangorod",
+      "website": "https://ifguap.ru/"
+    },
+    {
+      "id": "branch-0093949136",
+      "name": "Ставропольский институт кооперации (филиал) Белгородского университета кооперации, экономики и права",
+      "cityId": "stavropol",
+      "website": "https://stavik.ru/"
+    },
+    {
+      "id": "branch-2f1fba07fa",
+      "name": "Лениногорский филиал Казанского национального исследовательского технического университета им. А.Н. Туполева-КАИ",
+      "cityId": "leninogorsk",
+      "website": "http://lfkai.ru/"
+    },
+    {
+      "id": "branch-f6cd35ab8e",
+      "name": "Томский сельскохозяйственный институт - филиал Новосибирского ГАУ",
+      "cityId": "tomsk",
+      "website": "http://tshi.tomsk.ru/"
+    },
+    {
+      "id": "branch-d674c8cb8d",
+      "name": "Невинномысский государственный гуманитарно-технический институт",
+      "cityId": "nevinnomyssk",
+      "website": "http://нггти.рф/"
+    },
+    {
+      "id": "branch-d271e3a5b6",
+      "name": "Смоленский филиал Национального исследовательского университета «МЭИ»",
+      "cityId": "smolensk",
+      "website": "http://sbmpei.ru"
+    },
+    {
+      "id": "branch-79198a37e5",
+      "name": "Выксунский филиал Национального исследовательского технологического университета «МИСИС»",
+      "cityId": "vyksa",
+      "website": "https://vf.misis.ru/"
+    },
+    {
+      "id": "branch-94d004883b",
+      "name": "Орловский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "orel",
+      "website": "http://fa.ru/fil/orel/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-fdade8a5b2",
+      "name": "Тамбовский филиал Российского нового университета",
+      "cityId": "tambov",
+      "website": "http://tambov-rosnou.ru"
+    },
+    {
+      "id": "branch-30b054eb25",
+      "name": "Самарский филиал Московского городского педагогического университета",
+      "cityId": "samara",
+      "website": "http://samara.mgpu.ru/sveden/common"
+    },
+    {
+      "id": "branch-d346863ee4",
+      "name": "Волгоградский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "volgograd",
+      "website": "http://vlgr.ranepa.ru"
+    },
+    {
+      "id": "branch-730c58cf4c",
+      "name": "Нижнетагильский технологический институт (филиал) Уральского федерального университета имени первого Президента России Б.Н. Ельцина",
+      "cityId": "nizhniy-tagil",
+      "website": "http://nti.urfu.ru/"
+    },
+    {
+      "id": "branch-de0520b017",
+      "name": "Астраханский филиал Международного юридического института",
+      "cityId": "astrakhan",
+      "website": "http://lawacademy.ru/astrahan/"
+    },
+    {
+      "id": "branch-12637c8c87",
+      "name": "Ивановский филиал Международного юридического института",
+      "cityId": "ivanovo",
+      "website": "http://lawacademy.ru/ivanovo/"
+    },
+    {
+      "id": "branch-1125f06c72",
+      "name": "Королевский филиал Международного юридического института",
+      "cityId": "korolev",
+      "website": "http://lawacademy.ru/korolev/"
+    },
+    {
+      "id": "branch-985e743606",
+      "name": "Одинцовский филиал Международного юридического института",
+      "cityId": "odintsovo",
+      "website": "http://lawacademy.ru/odincovo/"
+    },
+    {
+      "id": "branch-abe8741cd5",
+      "name": "Смоленский филиал Международного юридического института",
+      "cityId": "smolensk",
+      "website": "http://lawacademy.ru/smolensk/"
+    },
+    {
+      "id": "branch-1aa33edc34",
+      "name": "Тульский филиал Международного юридического института",
+      "cityId": "tula",
+      "website": "http://lawacademy.ru/tula/"
+    },
+    {
+      "id": "branch-07b1ac8ca9",
+      "name": "Чебоксарский институт (филиал) Московского гуманитарно-экономического университета",
+      "cityId": "cheboksary",
+      "website": "http://cfmgei.ru"
+    },
+    {
+      "id": "branch-cf3b2ee4c4",
+      "name": "Казанский филиал Российского государственного университета правосудия",
+      "cityId": "kazan",
+      "website": "http://kb.rgup.ru/"
+    },
+    {
+      "id": "branch-e9f4475a0c",
+      "name": "Пятигорский институт (филиал) Северо-Кавказского федерального университета",
+      "cityId": "pyatigorsk",
+      "website": "http://pf.ncfu.ru/"
+    },
+    {
+      "id": "branch-8b05e74ea7",
+      "name": "Арзамасский филиал Нижегородского государственного университета им. Н.И. Лобачевского",
+      "cityId": "arzamas",
+      "website": "http://arz.unn.ru"
+    },
+    {
+      "id": "branch-b2c3b55859",
+      "name": "Набережночелнинский институт КФУ (филиал)",
+      "cityId": "naberezhnye-chelny",
+      "website": "http://kpfu.ru/chelny"
+    },
+    {
+      "id": "branch-a7b5bf043e",
+      "name": "Елабужский институт КФУ (филиал)",
+      "cityId": "elabuga",
+      "website": "http://kpfu.ru/elabuga"
+    },
+    {
+      "id": "branch-0779844576",
+      "name": "Орский гуманитарно-технологический институт (филиал) Оренбургского государственного университета",
+      "cityId": "orsk",
+      "website": "http://og-ti.ru"
+    },
+    {
+      "id": "branch-34b72cb7a1",
+      "name": "Кировский институт (филиал) Московского гуманитарно-экономического университета",
+      "cityId": "kirov",
+      "website": "https://mgeu-kirov.ru/"
+    },
+    {
+      "id": "branch-408293d9da",
+      "name": "Таганрогский институт экономики и управления",
+      "cityId": "taganrog",
+      "website": "http://tmei.ru/"
+    },
+    {
+      "id": "branch-6b66358e78",
+      "name": "Кумертауский институт экономики и права",
+      "cityId": "kumertau",
+      "website": "http://kiep.ucoz.ru/"
+    },
+    {
+      "id": "branch-1d029310ef",
+      "name": "Севастопольский филиал Московского государственного университета имени М.В. Ломоносова",
+      "cityId": "sevastopol",
+      "website": "https://sev.msu.ru/"
+    },
+    {
+      "id": "branch-7798667971",
+      "name": "Оренбургский филиал Российского государственного университета нефти и газа им. И.М. Губкина",
+      "cityId": "orenburg",
+      "website": "http://oren.gubkin.ru/"
+    },
+    {
+      "id": "branch-67d4cbcebf",
+      "name": "Ахтубинский филиал «Взлет» Московского авиационного института (национального исследовательского университета)",
+      "cityId": "akhtubinsk",
+      "website": "http://mai.ru/education/vzlet/"
+    },
+    {
+      "id": "branch-64e1e9d5bf",
+      "name": "Ступинский филиал Московского авиационного института (национального исследовательского университета)",
+      "cityId": "stupino",
+      "website": "http://sfmai.ru/"
+    },
+    {
+      "id": "branch-44bd7d7666",
+      "name": "Егорьевский технологический институт Московского государственного технологического университета «Станкин»",
+      "cityId": "egorevsk",
+      "website": "http://e-stankin.ru/"
+    },
+    {
+      "id": "branch-78c0b698ef",
+      "name": "Волгоградский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "volgograd",
+      "website": "http://volgograd.rea.ru/"
+    },
+    {
+      "id": "branch-8c7633e696",
+      "name": "Ивановский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "ivanovo",
+      "website": "http://rea.ru/ru/org/branches/Pages/ivanovo.aspx"
+    },
+    {
+      "id": "branch-83810d046d",
+      "name": "Кемеровский институт (филиал) Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "kemerovo",
+      "website": "http://kemerovo.rea.ru/"
+    },
+    {
+      "id": "branch-1c703e61a8",
+      "name": "Пермский филиал Национального исследовательского университета «Высшая школа экономики»",
+      "cityId": "perm",
+      "website": "http://perm.hse.ru"
+    },
+    {
+      "id": "branch-c7a45e3fed",
+      "name": "Ижевский институт (филиал) Всероссийского государственного университета юстиции (РПА Минюста России)",
+      "cityId": "izhevsk",
+      "website": "http://izhji.ru/"
+    },
+    {
+      "id": "branch-8da41288ad",
+      "name": "Иркутский институт (филиал) Всероссийского государственного университета юстиции (РПА Минюста России)",
+      "cityId": "irkutsk",
+      "website": "http://irk.rpa-mu.ru/"
+    },
+    {
+      "id": "branch-10bea3836f",
+      "name": "Казанский институт (филиал) Всероссийского государственного университета юстиции (РПА Минюста России)",
+      "cityId": "kazan",
+      "website": "http://kazanrpa.ru/"
+    },
+    {
+      "id": "branch-639a1eb16a",
+      "name": "Калужский институт (филиал) Всероссийского государственного университета юстиции",
+      "cityId": "kaluga",
+      "website": "https://kaluga.rpa-mu.ru/"
+    },
+    {
+      "id": "branch-0a1c20a57a",
+      "name": "Ростовский институт (филиал) Всероссийского государственного университета юстиции",
+      "cityId": "rostov-on-don",
+      "website": "http://rostov.rpa-mu.ru"
+    },
+    {
+      "id": "branch-0c3177744f",
+      "name": "Санкт-Петербургский институт (филиал) Всероссийского государственного университета юстиции (РПА Минюста России)",
+      "cityId": "saint-petersburg",
+      "website": "https://spb.rpa-mu.ru/"
+    },
+    {
+      "id": "branch-924942c84b",
+      "name": "Тульский институт (филиал) Всероссийского государственного университета юстиции (РПА Минюста России)",
+      "cityId": "tula",
+      "website": "http://tula.rpa-mu.ru/new/"
+    },
+    {
+      "id": "branch-df4340e266",
+      "name": "Волжский филиал Национального исследовательского университета «МЭИ»",
+      "cityId": "volzhskiy",
+      "website": "http://vfmei.ru"
+    },
+    {
+      "id": "branch-b67af24fa3",
+      "name": "Новотроицкий филиал Национального исследовательского технологического университета «МИСИС»",
+      "cityId": "novotroitsk",
+      "website": "http://nf.misis.ru/"
+    },
+    {
+      "id": "branch-77c1692c46",
+      "name": "Старооскольский технологический институт им. А.А. Угарова (филиал) Национального исследовательского технологического университета «МИСИС»",
+      "cityId": "staryy-oskol",
+      "website": "http://sf-misis.ru"
+    },
+    {
+      "id": "branch-6dbe066e83",
+      "name": "Оренбургский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "orenburg",
+      "website": "http://orenrsute.ru"
+    },
+    {
+      "id": "branch-3597f54c77",
+      "name": "Пермский институт (филиал) Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "perm",
+      "website": "http://rea.perm.ru"
+    },
+    {
+      "id": "branch-99a4adb846",
+      "name": "Рязанский филиал Московского университета Министерства внутренних дел Российской Федерации имени В.Я. Кикотя",
+      "cityId": "ryazan",
+      "website": "https://рф.мосу.мвд.рф"
+    },
+    {
+      "id": "branch-3ca9fc1f6c",
+      "name": "Пятигорский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "pyatigorsk",
+      "website": "http://pbrea.ru"
+    },
+    {
+      "id": "branch-899cd92bc8",
+      "name": "Севастопольский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "sevastopol",
+      "website": "https://sevastopol.rea.ru/"
+    },
+    {
+      "id": "branch-91a323ef84",
+      "name": "Смоленский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "smolensk",
+      "website": "http://smolreu.ru/"
+    },
+    {
+      "id": "branch-0b4b9f5616",
+      "name": "Тульский филиал Российского экономического университета имени Г.В. Плеханова",
+      "cityId": "tula",
+      "website": "https://tula.rea.ru/"
+    },
+    {
+      "id": "branch-60cef48de1",
+      "name": "Воронежский филиал Ростовского государственного университета путей сообщения",
+      "cityId": "voronezh",
+      "website": "http://vfrgups.ru/"
+    },
+    {
+      "id": "branch-7248f7b948",
+      "name": "Владимирский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "vladimir",
+      "website": "http://fa.ru/fil/vladimir/Pages/default.aspx"
+    },
+    {
+      "id": "branch-8065972c4c",
+      "name": "Калужский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "kaluga",
+      "website": "http://fa.ru/fil/kaluga/about/Pages/default.aspx"
+    },
+    {
+      "id": "branch-5e10fe89b5",
+      "name": "Краснодарский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "krasnodar",
+      "website": "http://fa.ru/fil/krasnodar/about/Pages/default.aspx"
+    },
+    {
+      "id": "branch-0797409c14",
+      "name": "Курский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "kursk",
+      "website": "http://fa.ru/fil/kursk/about/Pages/default.aspx"
+    },
+    {
+      "id": "branch-656034f4b3",
+      "name": "Липецкий филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "lipetsk",
+      "website": "http://fa.ru/fil/lipetsk/about/Pages/default.aspx"
+    },
+    {
+      "id": "branch-ef75959101",
+      "name": "Пензенский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "penza",
+      "website": "http://fa.ru/fil/penza/Pages/default.aspx"
+    },
+    {
+      "id": "branch-9a10a0c5f4",
+      "name": "Смоленский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "smolensk",
+      "website": "http://fa.ru/fil/smolensk/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-93ca918d63",
+      "name": "Тульский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "tula",
+      "website": "http://fa.ru/fil/tula/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-60488baa78",
+      "name": "Уфимский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "ufa",
+      "website": "http://fa.ru/fil/ufa/Pages/Home.aspx"
+    },
+    {
+      "id": "branch-762e7fc8a8",
+      "name": "Ярославский филиал Финансового университета при Правительстве Российской Федерации",
+      "cityId": "yaroslavl",
+      "website": "http://fa.ru/fil/yaroslavl"
+    },
+    {
+      "id": "branch-559054a1ed",
+      "name": "Воскресенский институт туризма (филиал РМАТ)",
+      "cityId": "voskresensk",
+      "website": "http://vintyr.com"
+    },
+    {
+      "id": "branch-e2cecddf47",
+      "name": "Калужский филиал Российского государственного аграрного университета - МСХА им. К.А. Тимирязева",
+      "cityId": "kaluga",
+      "website": "http://kaluga.timacad.ru"
+    },
+    {
+      "id": "branch-a41f812614",
+      "name": "Казанский филиал Российской международной академии туризма",
+      "cityId": "kazan",
+      "website": "http://kf-rmat.ru"
+    },
+    {
+      "id": "branch-4223fc87d8",
+      "name": "Псковский филиал Российской международной академии туризма",
+      "cityId": "pskov",
+      "website": "http://rmat.pskov.ru"
+    },
+    {
+      "id": "branch-8434d77e4d",
+      "name": "Домодедовский филиал Российского нового университета",
+      "cityId": "domodedovo",
+      "website": "http://df.rosnou.ru"
+    },
+    {
+      "id": "branch-4147ae1b4d",
+      "name": "Таганрогский филиал Российского нового университета",
+      "cityId": "taganrog",
+      "website": "http://tfrosnou.ru"
+    },
+    {
+      "id": "branch-eb2f9eb118",
+      "name": "Клинский филиал Российского государственного социального университета",
+      "cityId": "klin",
+      "website": "http://klin.rgsu.net"
+    },
+    {
+      "id": "branch-29a9eec12c",
+      "name": "Лесосибирский педагогический институт Сибирского федерального университета",
+      "cityId": "lesosibirsk",
+      "website": "http://lpi.sfu-kras.ru"
+    },
+    {
+      "id": "branch-3c05808632",
+      "name": "Павлово-Посадский филиал Российского государственного социального университета",
+      "cityId": "pavlovskiy-posad",
+      "website": "http://pavlovsky.rgsu.net"
+    },
+    {
+      "id": "branch-3314104ef7",
+      "name": "Новомосковский институт (филиал) Российского химико-технологического университета имени Д.И. Менделеева",
+      "cityId": "novomoskovsk",
+      "website": "http://nirhtu.ru"
+    },
+    {
+      "id": "branch-96722ab167",
+      "name": "Домодедовский филиал Российского государственного гуманитарного университета",
+      "cityId": "domodedovo",
+      "website": "http://dom-rsuh.ru"
+    },
+    {
+      "id": "branch-3c57c80a76",
+      "name": "Иркутский филиал Российского государственного университета физической культуры, спорта, молодежи и туризма",
+      "cityId": "irkutsk",
+      "website": "http://ifrgufk.ru"
+    },
+    {
+      "id": "branch-b492f2cbd1",
+      "name": "Астраханский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "astrakhan",
+      "website": "http://afvags.ru"
+    },
+    {
+      "id": "branch-8a78c1b16d",
+      "name": "Балаковский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "balakovo",
+      "website": "http://blk.ranepa.ru/"
+    },
+    {
+      "id": "branch-97a2442eeb",
+      "name": "Брянский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "bryansk",
+      "website": "http://br.ranepa.ru/"
+    },
+    {
+      "id": "branch-301016764e",
+      "name": "Владимирский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "vladimir",
+      "website": "http://vlad.ranepa.ru/"
+    },
+    {
+      "id": "branch-7611b80f67",
+      "name": "Вологодский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "vologda",
+      "website": "http://volog.ranepa.ru/"
+    },
+    {
+      "id": "branch-0d0b049ae9",
+      "name": "Воронежский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "voronezh",
+      "website": "http://vrn.ranepa.ru/"
+    },
+    {
+      "id": "branch-8241fdf5bb",
+      "name": "Выборгский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "vyborg",
+      "website": "http://vbr.ranepa.ru/"
+    },
+    {
+      "id": "branch-af45d4c31f",
+      "name": "Дзержинский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "dzerzhinsk",
+      "website": "http://dzr.ranepa.ru/"
+    },
+    {
+      "id": "branch-dd855afc3d",
+      "name": "Ивановский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "ivanovo",
+      "website": "http://iv.ranepa.ru/"
+    },
+    {
+      "id": "branch-3a47130913",
+      "name": "Калужский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "kaluga",
+      "website": "http://klg.ranepa.ru/"
+    },
+    {
+      "id": "branch-7b1b54ee4b",
+      "name": "Кировский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "kirov",
+      "website": "http://krv.ranepa.ru/"
+    },
+    {
+      "id": "branch-da60afd6b5",
+      "name": "Курганский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "kurgan",
+      "website": "http://kurg.ranepa.ru/"
+    },
+    {
+      "id": "branch-c935644c65",
+      "name": "Липецкий филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "lipetsk",
+      "website": "http://lip.ranepa.ru"
+    },
+    {
+      "id": "branch-2ad0b25597",
+      "name": "Мурманский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "murmansk",
+      "website": "http://mrm.ranepa.ru/"
+    },
+    {
+      "id": "branch-337788df24",
+      "name": "Новгородский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "velikiy-novgorod",
+      "website": "http://novgor.ranepa.ru/"
+    },
+    {
+      "id": "branch-b8e85d4e45",
+      "name": "Оренбургский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "orenburg",
+      "website": "http://orn.ranepa.ru/"
+    },
+    {
+      "id": "branch-f273f2a57c",
+      "name": "Пермский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "perm",
+      "website": "http://perm.ranepa.ru/"
+    },
+    {
+      "id": "branch-5106af6ee4",
+      "name": "Бронницкий филиал Московского автомобильно-дорожного государственного технического университета",
+      "cityId": "bronnitsy",
+      "website": "http://bronmadi.ru/view_doc.html?mode=home"
+    },
+    {
+      "id": "branch-1b2f84ad29",
+      "name": "Петропавловск-Камчатский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "petropavlovsk-kamchatskiy",
+      "website": "http://pk.ranepa.ru/"
+    },
+    {
+      "id": "branch-d7323bc4c8",
+      "name": "Фрязинский филиал Российского технологического университета МИРЭА",
+      "cityId": "fryazino",
+      "website": "http://f-mirea.ru/"
+    },
+    {
+      "id": "branch-bcb9d6caeb",
+      "name": "Иркутский филиал Московского государственного технического университета гражданской авиации",
+      "cityId": "irkutsk",
+      "website": "http://if-mstuca.ru"
+    },
+    {
+      "id": "branch-bcb28680ec",
+      "name": "Ростовский филиал Московского государственного технического университета гражданской авиации",
+      "cityId": "rostov-on-don",
+      "website": "http://rfmstuca.ru"
+    },
+    {
+      "id": "branch-3525f4d82d",
+      "name": "Волгоградский филиал Московского финансово-юридического университета МФЮА",
+      "cityId": "volgograd",
+      "website": "http://vg.mfua.ru"
+    },
+    {
+      "id": "branch-e361df5440",
+      "name": "Смоленский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "smolensk",
+      "website": "http://smol.ranepa.ru/"
+    },
+    {
+      "id": "branch-f1619c465c",
+      "name": "Ставропольский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "stavropol",
+      "website": "http://stav.ranepa.ru/"
+    },
+    {
+      "id": "branch-bae3d71de5",
+      "name": "Тамбовский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "tambov",
+      "website": "http://tmb.ranepa.ru/"
+    },
+    {
+      "id": "branch-cf9f5af757",
+      "name": "Тверской филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "tver",
+      "website": "http://tver.ranepa.ru/"
+    },
+    {
+      "id": "branch-0a04c01f38",
+      "name": "Тульский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "tula",
+      "website": "http://tfranhgs.ru/"
+    },
+    {
+      "id": "branch-7a205a2b0c",
+      "name": "Ульяновский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "ulyanovsk",
+      "website": "http://ul.ranepa.ru/"
+    },
+    {
+      "id": "branch-b836b74db9",
+      "name": "Чебоксарский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "cheboksary",
+      "website": "http://cheb.ranepa.ru/"
+    },
+    {
+      "id": "branch-cfac8ca5db",
+      "name": "Челябинский филиал Российской академии народного хозяйства и государственной службы при Президенте РФ",
+      "cityId": "chelyabinsk",
+      "website": "http://chel.ranepa.ru"
+    },
+    {
+      "id": "branch-081da2a9a9",
+      "name": "Кировский филиал Московского финансово-юридического университета МФЮА",
+      "cityId": "kirov",
+      "website": "http://kr.mfua.ru/"
+    },
+    {
+      "id": "branch-92fcfcfee2",
+      "name": "Орский филиал Московского финансово-юридического университета МФЮА",
+      "cityId": "orsk",
+      "website": "http://orsk.mfua.ru/"
+    },
+    {
+      "id": "branch-6650326bf6",
+      "name": "Владимирский филиал Российского университета кооперации",
+      "cityId": "vladimir",
+      "website": "http://vladimir.ruc.su/"
+    },
+    {
+      "id": "branch-e98bf231f0",
+      "name": "Волгоградский кооперативный институт (филиал) Российского университета кооперации",
+      "cityId": "volgograd",
+      "website": "http://volgograd.ruc.su/"
+    },
+    {
+      "id": "branch-472dba1ac6",
+      "name": "Ижевский филиал Российского университета кооперации",
+      "cityId": "izhevsk",
+      "website": "http://izhevsk.ruc.su/"
+    },
+    {
+      "id": "branch-141455cd22",
+      "name": "Калининградский филиал Российского университета кооперации",
+      "cityId": "kaliningrad",
+      "website": "http://kaliningrad.ruc.su/"
+    },
+    {
+      "id": "branch-00224711c5",
+      "name": "Краснодарский кооперативный институт (филиал) Российского университета кооперации",
+      "cityId": "krasnodar",
+      "website": "https://krasnodar.ruc.su/"
+    },
+    {
+      "id": "branch-03a9161fad",
+      "name": "Саранский кооперативный институт (филиал) Российского университета кооперации",
+      "cityId": "saransk",
+      "website": "https://saransk.ruc.su/"
+    },
+    {
+      "id": "branch-9eb4d0e017",
+      "name": "Чебоксарский кооперативный институт (филиал) Российского университета кооперации",
+      "cityId": "cheboksary",
+      "website": "https://cheb.ruc.su/"
+    },
+    {
+      "id": "branch-f61a247561",
+      "name": "Выборгский филиал Российского государственного педагогического университета им. Герцена",
+      "cityId": "vyborg",
+      "website": "http://vbgherzen.spb.ru/"
+    },
+    {
+      "id": "branch-bebd6285da",
+      "name": "Волховский филиал Российского государственного педагогического университета им. Герцена",
+      "cityId": "volkhov",
+      "website": "http://vherzen.ru/"
+    },
+    {
+      "id": "branch-46696f8885",
+      "name": "Политехнический институт (филиал) Уральского федерального университета имени первого Президента России Б.Н. Ельцина в г. Каменске-Уральском",
+      "cityId": "kamensk-uralskiy",
+      "website": "https://k-uralsk.urfu.ru/ru/"
+    },
+    {
+      "id": "branch-0d6752d91c",
+      "name": "Филиал Уральского федерального университета имени первого Президента России Б.Н. Ельцина в г. Верхняя Салда",
+      "cityId": "verkhnyaya-salda",
+      "website": "http://urfu.vsalde.ru/"
+    },
+    {
+      "id": "branch-c2fa43bcf9",
+      "name": "Ярославский филиал Московского финансово-юридического университета МФЮА",
+      "cityId": "yaroslavl",
+      "website": "http://yr.mfua.ru/"
+    },
+    {
+      "id": "branch-05828ab33b",
+      "name": "Нижневартовский филиал Южно-Уральского государственного университета (национальный исследовательский университет)",
+      "cityId": "nizhnevartovsk",
+      "website": "https://nv.susu.ru/"
+    },
+    {
+      "id": "branch-86515f0a62",
+      "name": "Филиал в г. Златоуст Южно-Уральского государственного университета НИУ",
+      "cityId": "zlatoust",
+      "website": "http://zb-susu.ru/"
+    },
+    {
+      "id": "branch-ef37126219",
+      "name": "Филиал в г. Миассе Южно-Уральского государственного университета (национальный исследовательский университет)",
+      "cityId": "miass",
+      "website": "https://miass.susu.ru/"
+    },
+    {
+      "id": "branch-89eef9ef64",
+      "name": "Волжский филиал Международного юридического института",
+      "cityId": "volzhskiy",
+      "website": "http://lawacademy.ru/volzhskiy/"
+    },
+    {
+      "id": "branch-62afd97e26",
+      "name": "Серпуховской филиал Военной академии ракетных войск стратегического назначения им. Петра Великого Министерства обороны Российской Федерации",
+      "cityId": "serpukhov",
+      "website": "https://serpukhov.varvsn.mil.ru/"
+    },
+    {
+      "id": "branch-638f2755a7",
+      "name": "Набережночелнинский филиал Казанского инновационного университета имени В.Г. Тимирясова (ИЭУП)",
+      "cityId": "naberezhnye-chelny",
+      "website": "http://chl.ieml.ru"
+    },
+    {
+      "id": "branch-3dfc17e1bf",
+      "name": "Калужский филиал Московского гуманитарно-экономического института",
+      "cityId": "kaluga",
+      "website": "http://mgei.kaluga.ru"
+    },
+    {
+      "id": "branch-ef6fb1bff2",
+      "name": "Пензенский филиал Московского университета имени С.Ю. Витте",
+      "cityId": "penza",
+      "website": "http://muiv.ru/penza/?utm_source=uchebaru&utm_medium=cpc"
+    },
+    {
+      "id": "branch-257346e807",
+      "name": "Рязанский филиал Московского университета имени С.Ю. Витте",
+      "cityId": "ryazan",
+      "website": "https://muiv.ru/ryazan/"
+    },
+    {
+      "id": "branch-75439082ce",
+      "name": "Филиал в г. Сергиев Посад Московского университета имени С.Ю. Витте",
+      "cityId": "sergiev-posad",
+      "website": "http://muiv.ru/sposad"
+    },
+    {
+      "id": "branch-625cbbfd22",
+      "name": "Дмитровский институт непрерывного образования Государственного университета «Дубна»",
+      "cityId": "dmitrov",
+      "website": "http://dmitrov-dubna.ru"
+    },
+    {
+      "id": "branch-821a3fa6c0",
+      "name": "Филиал «Котельники» Государственного университета «Дубна»",
+      "cityId": "kotelniki",
+      "website": "http://un-fkt.ru"
+    },
+    {
+      "id": "branch-f8f35725e5",
+      "name": "Филиал «Протвино» Государственного университета «Дубна»",
+      "cityId": "protvino",
+      "website": "http://uni-protvino.ru"
+    },
+    {
+      "id": "branch-2a78e796bf",
+      "name": "Нижегородский филиал Московского гуманитарно-экономического института",
+      "cityId": "nizhny-novgorod",
+      "website": "http://nfmgei.ru"
+    },
+    {
+      "id": "branch-717de1aa19",
+      "name": "Новороссийский филиал Московского гуманитарно-экономического института",
+      "cityId": "novorossiysk",
+      "website": "http://nvr-mgei.ru"
+    },
+    {
+      "id": "branch-c316a63be8",
+      "name": "Воронежский филиал ГУМРФ им Макарова",
+      "cityId": "voronezh",
+      "website": "http://vfgumrf.ru"
+    },
+    {
+      "id": "branch-3247a6b153",
+      "name": "Котласский филиал ГУМРФ им. Макарова",
+      "cityId": "kotlas",
+      "website": "http://kfspbuwc.ru"
+    },
+    {
+      "id": "branch-4a65b3d6f0",
+      "name": "Нижнекамский филиал Казанского инновационного университета имени В.Г. Тимирясова (ИЭУП)",
+      "cityId": "nizhnekamsk",
+      "website": "https://nzh.ieml.ru"
+    },
+    {
+      "id": "branch-c1fb472e59",
+      "name": "Тарский филиал Омского государственного педагогического университета",
+      "cityId": "tara",
+      "website": "http://tara.omgpu.ru"
+    },
+    {
+      "id": "branch-bfc78662ae",
+      "name": "Филиал в г. Новошахтинске Южного федерального университета",
+      "cityId": "novoshakhtinsk",
+      "website": "http://nshf.sfedu.ru"
+    },
+    {
+      "id": "branch-25afef5699",
+      "name": "Смоленский областной казачий институт промышленных технологий и бизнеса (филиал МГУТУ)",
+      "cityId": "smolensk",
+      "website": "http://vfmgutu.ru"
+    },
+    {
+      "id": "branch-3514706f64",
+      "name": "Липецкий казачий институт технологий и управления (филиал) ФГБОУ ВО \"Московский государственный университет технологий и управления имени К.Г. Разумовского (Первый казачий университет)\"",
+      "cityId": "lipetsk",
+      "website": "http://mgutu48.ru"
+    },
+    {
+      "id": "branch-e96887ccbe",
+      "name": "Санкт-Петербургский филиал РТА им. В.Б. Бобкова",
+      "cityId": "saint-petersburg",
+      "website": "http://spbrta.customs.ru/spbrta/index.php"
+    },
+    {
+      "id": "branch-f0ea488d78",
+      "name": "Владивостокский филиал Российской таможенной академии",
+      "cityId": "vladivostok",
+      "website": "https://vfrta.customs.gov.ru/"
+    },
+    {
+      "id": "branch-106f751b2b",
+      "name": "Ростовский филиал Российской таможенной академии",
+      "cityId": "rostov-on-don",
+      "website": "http://donrta.customs.gov.ru/"
+    },
+    {
+      "id": "branch-cdb65f1f53",
+      "name": "Старооскольский филиал МГРИ-РГГРУ",
+      "cityId": "staryy-oskol",
+      "website": "http://sfrsgpa.ru"
+    },
+    {
+      "id": "branch-b5334bbcf0",
+      "name": "Новосибирский технологический институт (филиал РГУ им. Косыгина)",
+      "cityId": "novosibirsk",
+      "website": "http://ntirgu.ru/"
+    },
+    {
+      "id": "branch-f6dbf54d36",
+      "name": "Ростовский филиал РГУП",
+      "cityId": "rostov-on-don",
+      "website": "http://rb.raj.ru/"
+    },
+    {
+      "id": "branch-c88e965add",
+      "name": "Новороссийский филиал Пятигорского государственного университета",
+      "cityId": "novorossiysk",
+      "website": "http://nf-pgu.ru"
+    },
+    {
+      "id": "branch-77901d09ee",
+      "name": "Железноводский филиал Ставропольского государственного педагогического института",
+      "cityId": "zheleznovodsk",
+      "website": "http://sgpizh.ru/"
+    },
+    {
+      "id": "branch-b7f100906b",
+      "name": "Ессентукский филиал Ставропольского государственного педагогического института",
+      "cityId": "essentuki",
+      "website": "http://yesspi.ru/"
+    },
+    {
+      "id": "branch-04303571f6",
+      "name": "Невинномысский технологический институт (филиал) Северо-Кавказского федерального университета",
+      "cityId": "nevinnomyssk",
+      "website": "http://nti.ncfu.ru/"
+    },
+    {
+      "id": "branch-da93589f6c",
+      "name": "Калининградский филиал СПбГАУ",
+      "cityId": "kaliningrad",
+      "website": "http://spbgau-kf.ru"
+    },
+    {
+      "id": "branch-126e5fd276",
+      "name": "Дзержинский филиал Нижегородского государственного университета им. Н.И. Лобачевского",
+      "cityId": "dzerzhinsk",
+      "website": "http://unn.ru/cdo/Dzerzhinsk"
+    },
+    {
+      "id": "branch-a51686aee7",
+      "name": "Павловский филиал Нижегородского государственного университета им. Н.И. Лобачевского",
+      "cityId": "pavlovo",
+      "website": "http://unn.ru/cdo/Pavlovo.html"
+    },
+    {
+      "id": "branch-6a2a1bb8da",
+      "name": "Арзамасский политехнический институт Нижегородского Государственного Политехнического Университета им. Р.Е. Алексеева",
+      "cityId": "arzamas",
+      "website": "http://apingtu.edu.ru/"
+    },
+    {
+      "id": "branch-0e24cf7848",
+      "name": "Дзержинский политехнический институт (филиал) Нижегородского Государственного Политехнического Университета им. Р.Е. Алексеева",
+      "cityId": "dzerzhinsk",
+      "website": "https://dpi.nntu.ru/"
+    },
+    {
+      "id": "branch-6c2e67a6f2",
+      "name": "Сызранский филиал Самарского государственного технического университета",
+      "cityId": "syzran",
+      "website": "https://sfsamgtu.ru/"
+    },
+    {
+      "id": "branch-bf457502c3",
+      "name": "Мстёрский филиал ВШНИ",
+      "cityId": "mstera",
+      "website": "http://mstera-vshni.ucoz.ru/"
+    },
+    {
+      "id": "branch-a1ac882520",
+      "name": "Сергиево-Посадский филиал ВШНИ",
+      "cityId": "sergiev-posad",
+      "website": "http://spf-vshni.ru/"
+    },
+    {
+      "id": "branch-068959a888",
+      "name": "Дербентский филиал Дагестанского государственного университета",
+      "cityId": "derbent",
+      "website": "http://dgu-derbent.ru"
+    },
+    {
+      "id": "branch-27b1778185",
+      "name": "Избербашский филиал Дагестанского государственного университета",
+      "cityId": "izberbash",
+      "website": "http://dguizber.ru"
+    },
+    {
+      "id": "branch-0d7478ef0e",
+      "name": "Кизлярский филиал Дагестанского государственного университета",
+      "cityId": "kizlyar",
+      "website": "http://dgukiz.ru"
+    },
+    {
+      "id": "branch-e3844a949e",
+      "name": "Хасавюртский филиал Дагестанского государственного университета",
+      "cityId": "khasavyurt",
+      "website": "http://hasdgu.ru"
+    },
+    {
+      "id": "branch-ccd673b241",
+      "name": "Хабаровский институт инфокоммуникаций (филиал СибГУТИ)",
+      "cityId": "khabarovsk",
+      "website": "http://hiik.ru/"
+    },
+    {
+      "id": "branch-03f1317c70",
+      "name": "Бугульминский филиал КНИТУ",
+      "cityId": "bugulma",
+      "website": "http://bfknitu.com"
+    },
+    {
+      "id": "branch-f9a7e0c950",
+      "name": "Нижнекамский химико-технологический институт (филиал КНИТУ)",
+      "cityId": "nizhnekamsk",
+      "website": "http://nchti.ru/"
+    },
+    {
+      "id": "branch-63bcb6469c",
+      "name": "Бузулукский гуманитарно-технологический институт Оренбургского государственного университета",
+      "cityId": "buzuluk",
+      "website": "http://bgti.ru/"
+    },
+    {
+      "id": "branch-afe49ce657",
+      "name": "Филиал в г. Туапсе Российского государственного гидрометеорологического университета",
+      "cityId": "tuapse",
+      "website": "http://tuapse.rshu.ru"
+    },
+    {
+      "id": "branch-7152df71c8",
+      "name": "Кумертауский филиал Оренбургского государственного университета",
+      "cityId": "kumertau",
+      "website": "http://kf.osu.ru/"
+    },
+    {
+      "id": "branch-2047757513",
+      "name": "Омский институт водного транспорта (филиал) Сибирского государственного университета водного транспорта",
+      "cityId": "omsk",
+      "website": "http://oivt-sguwt.ru/"
+    },
+    {
+      "id": "branch-2fff895b05",
+      "name": "Куйбышевский филиал Новосибирского государственного педагогического университета",
+      "cityId": "kuybyshev",
+      "website": "https://kf.nspu.ru/"
+    },
+    {
+      "id": "branch-7781d22780",
+      "name": "Арзамасский филиал Российского университета кооперации",
+      "cityId": "arzamas",
+      "website": "http://arzamas.ruc.su/"
+    },
+    {
+      "id": "branch-2f22e0ded5",
+      "name": "Московский областной филиал Российской академии народного хозяйства и государственной службы при Президенте РФ (г. Красногорск)",
+      "cityId": "krasnogorsk",
+      "website": "http://mo.ranepa.ru/"
+    },
+    {
+      "id": "branch-608c24e2a1",
+      "name": "Филиал в г. Туапсе Ростовского государственного университета путей сообщения",
+      "cityId": "tuapse",
+      "website": "http://rgups.ru"
+    },
+    {
+      "id": "branch-5eaceab8f8",
+      "name": "Филиал в г. Геленджике Южного федерального университета",
+      "cityId": "gelendzhik",
+      "website": "https://sfedu.ru/"
+    }
+  ]
+}

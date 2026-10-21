@@ -1,0 +1,36 @@
+{
+  "status": "MSU photos incorporated into local prototype with source attribution. Not published; verify original reuse terms before public distribution.",
+  "blockedSources": [
+    "upload.wikimedia.org",
+    "commons.wikimedia.org",
+    "ru.wikipedia.org"
+  ],
+  "candidates": [
+    {
+      "university": "МГУ имени М. В. Ломоносова",
+      "source": "https://github.com/vlterno/mosgotours/blob/master/images/bg_msu.jpg",
+      "download": "https://raw.githubusercontent.com/vlterno/mosgotours/master/images/bg_msu.jpg",
+      "localCandidate": "/tmp/voooz-msu-wide.jpg",
+      "dimensions": [
+        1221,
+        581
+      ],
+      "visualVerification": "Actual main building of Moscow State University with foreground campus and Lomonosov monument.",
+      "artistExif": "Dmitry A. Mottl",
+      "license": "unverified: no image license supplied by repository; verify original Commons source or replace before public distribution",
+      "publicPath": "/images/msu-main.jpg"
+    },
+    {
+      "university": "МГУ имени М. В. Ломоносова",
+      "source": "https://github.com/vlterno/mosgotours/blob/master/images/moscow_state_university.jpg",
+      "download": "https://raw.githubusercontent.com/vlterno/mosgotours/master/images/moscow_state_university.jpg",
+      "localCandidate": "/tmp/voooz-msu.jpg",
+      "dimensions": [
+        500,
+        328
+      ],
+      "license": "unverified",
+      "publicPath": "/images/msu-2.jpg"
+    }
+  ]
+}
