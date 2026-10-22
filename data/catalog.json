@@ -3996,7 +3996,15 @@
       "description": "Экономика, анализ данных, дизайн и социальные науки в университете с междисциплинарным подходом.",
       "details": "Высшая школа экономики предлагает программы по экономике, управлению, информатике, социальным и гуманитарным наукам, а также дизайну. В каталоге указан основной кампус в Москве; у университета также есть кампусы в других городах. Условия приёма и стоимость нужно смотреть по выбранному кампусу.",
       "website": "https://www.hse.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/hse-main.jpg",
+          "alt": "Вход в корпус Высшей школы экономики и скульптура Фемиды",
+          "credit": "Центр ДПО факультета права НИУ ВШЭ; публичное зеркало itspecR/dpo-pravo-hse",
+          "source": "https://github.com/itspecR/dpo-pravo-hse/blob/main/images/hero-composite-1000.jpg",
+          "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+        }
+      ],
       "tags": [
         "Экономика",
         "Анализ данных",
@@ -4034,7 +4042,16 @@
       "description": "IT, искусственный интеллект, фотоника и технологическое предпринимательство в Петербурге.",
       "details": "ИТМО — исследовательский университет в Санкт-Петербурге с фокусом на информационных и оптических технологиях. Среди направлений — программирование, искусственный интеллект, фотоника, биотехнологии и управление инновациями. Содержание и вступительные требования зависят от конкретной программы.",
       "website": "http://www.ifmo.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/itmo-main.jpg",
+          "alt": "Главный корпус Университета ИТМО на Кронверкском проспекте",
+          "credit": "Сайт-шаблон Университета ИТМО; публичный репозиторий tjarrow/itmo-layout",
+          "source": "https://github.com/tjarrow/itmo-layout/blob/master/img/IMG_6600.png",
+          "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника.",
+          "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+        }
+      ],
       "tags": [
         "Информатика",
         "Искусственный интеллект",
@@ -4069,7 +4086,16 @@
       "description": "Классический университет Петербурга: от медицины и естественных наук до языков, права и искусства.",
       "details": "Санкт-Петербургский государственный университет предлагает широкий выбор академических направлений. Учебные здания расположены в нескольких районах Петербурга и Петергофе, поэтому при выборе программы полезно уточнить место занятий. Для творческих и некоторых других программ предусмотрены собственные испытания.",
       "website": "http://spbu.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/spbu-main.jpg",
+          "alt": "Здание Двенадцати коллегий Санкт-Петербургского государственного университета",
+          "credit": "Источник: публичное зеркало сайта филиала СПбГУ Sam23656/spbu_site",
+          "source": "https://github.com/Sam23656/spbu_site/blob/main/spbu_site/public/images/image.png",
+          "license": "Репозиторий имеет MIT-лицензию; отдельные условия фотографии не указаны.",
+          "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+        }
+      ],
       "tags": [
         "Классический университет",
         "Право",
@@ -4106,7 +4132,15 @@
       "description": "Физтех: математика, физика и исследовательская работа в лабораториях уже во время учёбы.",
       "details": "Московский физико-технический институт расположен в Долгопрудном. Его образовательная модель сочетает фундаментальную подготовку по математике и физике с работой на базовых кафедрах и в исследовательских организациях. Конкретный набор экзаменов зависит от физтех-школы и программы.",
       "website": "https://mipt.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/mipt-main.jpg",
+          "alt": "Лабораторный корпус МФТИ в Долгопрудном",
+          "credit": "Профком МФТИ; публичный репозиторий TimStapleton/Profcom-website",
+          "source": "https://github.com/TimStapleton/Profcom-website/blob/master/profkom-theme-html/build/images/cover-bg.jpg",
+          "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+        }
+      ],
       "tags": [
         "Физика",
         "Математика",
@@ -4142,7 +4176,16 @@
       "description": "Учёба в новосибирском Академгородке и близость к институтам Сибирского отделения РАН.",
       "details": "Новосибирский государственный университет расположен в Академгородке. Его научная среда связана с исследовательскими институтами Сибирского отделения Российской академии наук. Университет предлагает естественно-научные, технические, гуманитарные и медицинские направления.",
       "website": "http://www.nsu.ru/?lang=ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/nsu-main.jpg",
+          "alt": "Старый корпус Новосибирского государственного университета в Академгородке",
+          "credit": "NGS.RU; фотогалерея мехмата НГУ, публичный репозиторий jekay23/expo",
+          "source": "https://github.com/jekay23/expo/blob/master/Public/uploads/photos/oldNSU.png",
+          "license": "Отдельные условия фотографии не указаны; источник и водяной знак NGS.RU сохранены.",
+          "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+        }
+      ],
       "tags": [
         "Академгородок",
         "Исследования",
@@ -4178,7 +4221,22 @@
       "description": "Большой университет Казани: фундаментальные науки, медицина, педагогика и современные технологии.",
       "details": "Казанский федеральный университет предлагает широкий спектр направлений — от физики и информационных технологий до медицины, филологии и педагогики. Помимо Казани, у университета есть обособленные подразделения; программы и правила поступления необходимо сверять по кампусу.",
       "website": "http://kpfu.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/extra-kfu.jpg",
+          "alt": "Главный корпус Казанского федерального университета на Кремлёвской улице в Казани",
+          "credit": "Фотография из публичной галереи Казани, kakabayewrejepberdi083-hue/kazan",
+          "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university-1.jpg",
+          "license": "Лицензия фотографии в источнике не указана"
+        },
+        {
+          "url": "/images/extra-kfu-side.jpg",
+          "alt": "Главный корпус КФУ и памятник студенту Ленину в Казани",
+          "credit": "© Aliya Galimullina; фотография из галереи kakabayewrejepberdi083-hue/kazan",
+          "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university.jpg",
+          "license": "Лицензия фотографии в источнике не указана"
+        }
+      ],
       "tags": [
         "Федеральный университет",
         "Медицина",
@@ -4215,7 +4273,24 @@
       "description": "Инженерная школа: робототехника, машиностроение, космические системы и цифровые технологии.",
       "details": "Московский государственный технический университет имени Н. Э. Баумана специализируется на инженерном образовании. Среди областей подготовки — машиностроение, робототехника, информатика и ракетно-космическая техника. Перед подачей документов нужно проверить факультет, форму обучения и вступительные испытания.",
       "website": "http://www.bmstu.ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/moscow-bmstu-main.jpg",
+          "alt": "Главный учебный корпус МГТУ имени Н. Э. Баумана со стороны главного входа",
+          "credit": "Проект навигации по кампусу Bauman Webmap; автор фотографии не указан",
+          "source": "https://github.com/KMandarinka/Bauman-Webmap/blob/df097f85ee5c8e35a085aa45e4f10a36df3b86fc/Bmap/main/templates/static/images/gz.jpg",
+          "license": "В публичном репозитории отдельная лицензия на изображение не указана",
+          "verification": "Визуально проверено главное учебное здание МГТУ; источник — проект карты именно кампуса Бауманского университета."
+        },
+        {
+          "url": "/images/moscow-bmstu-night.jpg",
+          "alt": "Вечерний вид главного учебного корпуса МГТУ имени Н. Э. Баумана с Яузской набережной",
+          "credit": "Сайт кафедры Э3 МГТУ, репозиторий Kirill Eremin; автор фотографии не указан",
+          "source": "https://github.com/iam-kirill-eremin/bmstu-e3.ru/blob/ff60aedeeb6ebef357362978a5b1f525b31ac5ff/assets/images/jpg/bmstu.jpg",
+          "license": "Репозиторий опубликован по MIT (Copyright 2018 Kirill Eremin); отдельный автор и условия фотографии не указаны",
+          "verification": "Визуально проверено главное здание МГТУ на Яузе; изображение находится в проекте сайта кафедры Э3 МГТУ."
+        }
+      ],
       "tags": [
         "Инженерия",
         "Робототехника",
@@ -4286,7 +4361,38 @@
       "description": "Инженерия, естественные науки, экономика и гуманитарные направления в Екатеринбурге.",
       "details": "Уральский федеральный университет имени первого Президента России Б. Н. Ельцина объединяет инженерную, естественно-научную и гуманитарную подготовку. Разные институты УрФУ предлагают собственные образовательные траектории. Точные условия приёма публикует университет для каждой программы.",
       "website": "https://urfu.ru/ru",
-      "images": [],
+      "images": [
+        {
+          "url": "/images/regions-urfu-main.jpg",
+          "alt": "Главный учебный корпус УрФУ в Екатеринбурге",
+          "credit": "Vyacheslav Bukharov · CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Ural_State_Technical_University_(July_2023)_-_9.jpg",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/ural-state-technical-university-july-2023-9.jpg",
+          "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+        },
+        {
+          "url": "/images/regions-urfu-lenina.jpg",
+          "alt": "Корпус УрФУ на проспекте Ленина, 51 в Екатеринбурге",
+          "credit": "Der.metzger2009 · CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/w/index.php?curid=58145728",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/main-building-ural-state-university.jpg",
+          "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+        },
+        {
+          "url": "/images/regions-urfu-evening.jpg",
+          "alt": "Главный учебный корпус УрФУ вечером",
+          "credit": "Artyom Vasilyev · CC BY-SA 2.0",
+          "source": "https://commons.wikimedia.org/w/index.php?curid=129614343",
+          "license": "CC BY-SA 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/2022-12-21.jpg",
+          "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+        }
+      ],
       "tags": [
         "Инженерия",
         "Материаловедение",

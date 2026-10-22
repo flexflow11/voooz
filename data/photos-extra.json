@@ -1,0 +1,21 @@
+[
+  {
+    "universityId": "kfu",
+    "images": [
+      {
+        "url": "/images/extra-kfu.jpg",
+        "alt": "Главный корпус Казанского федерального университета на Кремлёвской улице в Казани",
+        "credit": "Фотография из публичной галереи Казани, kakabayewrejepberdi083-hue/kazan",
+        "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university-1.jpg",
+        "license": "Лицензия фотографии в источнике не указана"
+      },
+      {
+        "url": "/images/extra-kfu-side.jpg",
+        "alt": "Главный корпус КФУ и памятник студенту Ленину в Казани",
+        "credit": "© Aliya Galimullina; фотография из галереи kakabayewrejepberdi083-hue/kazan",
+        "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university.jpg",
+        "license": "Лицензия фотографии в источнике не указана"
+      }
+    ]
+  }
+]

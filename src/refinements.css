@@ -1,0 +1,45 @@
+/* Form guidance and the short, actionable path below the hero button. */
+.exam-entry { margin-bottom: 12px; }
+.exam-entry .exam-row { margin-bottom: 0; }
+.exam-row input[type="number"] { appearance: textfield; -moz-appearance: textfield; transition: border-color .2s, background .2s, box-shadow .2s; }
+.exam-row input::-webkit-inner-spin-button,
+.exam-row input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.exam-row input[aria-invalid="true"] { background: #fffaf2; border-color: #c9a375; box-shadow: 0 0 0 3px #e6cfa02b; }
+.exam-row input[aria-invalid="true"]:focus-visible { outline: 2px solid #b99a6d; outline-offset: 3px; }
+.exam-field-error { display: flex; align-items: center; gap: 10px; margin: 9px 0 3px; padding: 11px 13px; border: 1px solid #e3ddc9; border-radius: 8px; background: linear-gradient(110deg, #f5f3e7, #fbfaf3); color: #6b7458; animation: guidance-in .18s ease-out; }
+.field-error-icon { display: grid; place-items: center; height: 31px; width: 31px; flex-shrink: 0; border: 1px solid #dce2c8; border-radius: 9px; color: #73864f; background: #edf1df; }
+.exam-field-error strong { display: block; font-size: 10px; line-height: 1.5; font-weight: 500; color: #677549; }
+.exam-field-error div > span { display: block; font-size: 8px; line-height: 1.6; color: #9a9c82; margin-top: 3px; }
+.error-note { display: flex; gap: 12px; align-items: flex-start; background: #f7f2e7; border: 1px solid #e4d9c1; border-radius: 9px; color: #7d795b; padding: 16px; }
+.error-note > svg { flex-shrink: 0; margin-top: 2px; color: #a09168; }
+.error-note strong { display: block; font-weight: 500; font-size: 12px; color: #776d4d; }
+.error-note p { margin: 6px 0 0; font-size: 11px; line-height: 1.75; }
+.hero-journey { display: flex; width: fit-content; align-items: center; gap: 9px; margin-top: 25px; padding-top: 16px; border-top: 1px solid #dfe6d4; }
+.hero-journey button { display: flex; align-items: center; gap: 9px; padding: 3px 4px 3px 0; text-align: left; background: transparent; border-radius: 5px; transition: color .2s; }
+.hero-journey button > span:last-child { font-size: 9px; line-height: 1.65; color: #98a18c; }
+.hero-journey button strong { color: #738665; font-weight: 500; }
+.hero-journey .journey-step { display: grid; place-items: center; min-width: 28px; height: 31px; border-radius: 7px; border: 1px solid #dce4cb; background: #edf2df; color: #81985d; font-size: 10px; font-weight: 500; }
+.hero-journey > svg { color: #b4c1a3; }
+.hero-journey button:hover .journey-step { background: #deebbc; border-color: #c6d79f; color: #5c793d; }
+.hero-journey button:hover strong { color: #315a3d; }
+@keyframes guidance-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1000px) {
+  .hero-journey { gap: 6px; margin-top: 20px; padding-top: 13px; }
+  .hero-journey button { gap: 6px; }
+  .hero-journey button > span:last-child { font-size: 8px; }
+  .hero-journey .journey-step { min-width: 25px; height: 29px; font-size: 9px; }
+  .hero-journey > svg { width: 10px; }
+}
+@media (max-width: 520px) {
+  .hero-journey { display: flex; width: fit-content; max-width: 100%; gap: 7px; margin-top: 22px; padding-top: 16px; }
+  .hero-journey button { gap: 7px; }
+  .hero-journey button > span:last-child { font-size: 9px; }
+  .hero-journey .journey-step { min-width: 27px; height: 32px; font-size: 9px; }
+  .hero-journey > svg { width: 12px; }
+  .exam-field-error { padding: 11px 12px; gap: 10px; margin-top: 10px; }
+  .exam-field-error strong { font-size: 11px; }
+  .exam-field-error div > span { font-size: 9px; }
+  .error-note strong { font-size: 12px; }
+  .error-note p { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .exam-field-error { animation: none; } }

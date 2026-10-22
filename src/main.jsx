@@ -15,5 +15,6 @@ import '@fontsource/lora/latin-400.css';
 import '@fontsource/lora/cyrillic-400-italic.css';
 import '@fontsource/lora/latin-400-italic.css';
 import './styles.css';
+import './refinements.css';
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

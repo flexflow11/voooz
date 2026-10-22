@@ -120,6 +120,8 @@ test('out-of-range scores cannot submit and additional exams prevent repeated la
   page.on('request', request => { if (request.url().endsWith('/api/recommendations') && request.method() === 'POST') submissions++; });
   await form.getByRole('button', { name: 'Подобрать вуз', exact: true }).click();
   await expect(form).toBeVisible();
+  await expect(form.locator('#ege-score-error-0')).toContainText('Баллы должны быть от 0 до 100');
+  await expect(form.getByRole('spinbutton', { name: 'Баллы: Русский язык', exact: true })).toHaveAttribute('aria-invalid', 'true');
   expect(submissions).toBe(0);
   await form.getByRole('button', { name: 'Добавить предмет' }).click();
   await form.getByRole('combobox', { name: 'Предмет 4', exact: true }).selectOption('Немецкий язык');

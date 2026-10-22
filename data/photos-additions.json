@@ -1,0 +1,45 @@
+[
+  {
+    "universityId": "hse",
+    "url": "/images/hse-main.jpg",
+    "alt": "Вход в корпус Высшей школы экономики и скульптура Фемиды",
+    "credit": "Центр ДПО факультета права НИУ ВШЭ; публичное зеркало itspecR/dpo-pravo-hse",
+    "source": "https://github.com/itspecR/dpo-pravo-hse/blob/main/images/hero-composite-1000.jpg",
+    "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+  },
+  {
+    "universityId": "mipt",
+    "url": "/images/mipt-main.jpg",
+    "alt": "Лабораторный корпус МФТИ в Долгопрудном",
+    "credit": "Профком МФТИ; публичный репозиторий TimStapleton/Profcom-website",
+    "source": "https://github.com/TimStapleton/Profcom-website/blob/master/profkom-theme-html/build/images/cover-bg.jpg",
+    "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+  },
+  {
+    "universityId": "itmo",
+    "url": "/images/itmo-main.jpg",
+    "alt": "Главный корпус Университета ИТМО на Кронверкском проспекте",
+    "credit": "Сайт-шаблон Университета ИТМО; публичный репозиторий tjarrow/itmo-layout",
+    "source": "https://github.com/tjarrow/itmo-layout/blob/master/img/IMG_6600.png",
+    "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника.",
+    "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+  },
+  {
+    "universityId": "spbu",
+    "url": "/images/spbu-main.jpg",
+    "alt": "Здание Двенадцати коллегий Санкт-Петербургского государственного университета",
+    "credit": "Источник: публичное зеркало сайта филиала СПбГУ Sam23656/spbu_site",
+    "source": "https://github.com/Sam23656/spbu_site/blob/main/spbu_site/public/images/image.png",
+    "license": "Репозиторий имеет MIT-лицензию; отдельные условия фотографии не указаны.",
+    "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+  },
+  {
+    "universityId": "nsu",
+    "url": "/images/nsu-main.jpg",
+    "alt": "Старый корпус Новосибирского государственного университета в Академгородке",
+    "credit": "NGS.RU; фотогалерея мехмата НГУ, публичный репозиторий jekay23/expo",
+    "source": "https://github.com/jekay23/expo/blob/master/Public/uploads/photos/oldNSU.png",
+    "license": "Отдельные условия фотографии не указаны; источник и водяной знак NGS.RU сохранены.",
+    "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+  }
+]

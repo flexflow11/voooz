@@ -1,0 +1,23 @@
+[
+  {
+    "universityId": "bmstu",
+    "images": [
+      {
+        "url": "/images/moscow-bmstu-main.jpg",
+        "alt": "Главный учебный корпус МГТУ имени Н. Э. Баумана со стороны главного входа",
+        "credit": "Проект навигации по кампусу Bauman Webmap; автор фотографии не указан",
+        "source": "https://github.com/KMandarinka/Bauman-Webmap/blob/df097f85ee5c8e35a085aa45e4f10a36df3b86fc/Bmap/main/templates/static/images/gz.jpg",
+        "license": "В публичном репозитории отдельная лицензия на изображение не указана",
+        "verification": "Визуально проверено главное учебное здание МГТУ; источник — проект карты именно кампуса Бауманского университета."
+      },
+      {
+        "url": "/images/moscow-bmstu-night.jpg",
+        "alt": "Вечерний вид главного учебного корпуса МГТУ имени Н. Э. Баумана с Яузской набережной",
+        "credit": "Сайт кафедры Э3 МГТУ, репозиторий Kirill Eremin; автор фотографии не указан",
+        "source": "https://github.com/iam-kirill-eremin/bmstu-e3.ru/blob/ff60aedeeb6ebef357362978a5b1f525b31ac5ff/assets/images/jpg/bmstu.jpg",
+        "license": "Репозиторий опубликован по MIT (Copyright 2018 Kirill Eremin); отдельный автор и условия фотографии не указаны",
+        "verification": "Визуально проверено главное здание МГТУ на Яузе; изображение находится в проекте сайта кафедры Э3 МГТУ."
+      }
+    ]
+  }
+]

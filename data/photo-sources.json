@@ -1,36 +1,133 @@
 {
-  "status": "MSU photos incorporated into local prototype with source attribution. Not published; verify original reuse terms before public distribution.",
-  "blockedSources": [
-    "upload.wikimedia.org",
-    "commons.wikimedia.org",
-    "ru.wikipedia.org"
-  ],
-  "candidates": [
+  "status": "Локальные реальные фотографии кампусов для стартового каталога; соответствие здания проверено визуально.",
+  "photos": [
     {
-      "university": "МГУ имени М. В. Ломоносова",
-      "source": "https://github.com/vlterno/mosgotours/blob/master/images/bg_msu.jpg",
-      "download": "https://raw.githubusercontent.com/vlterno/mosgotours/master/images/bg_msu.jpg",
-      "localCandidate": "/tmp/voooz-msu-wide.jpg",
-      "dimensions": [
-        1221,
-        581
-      ],
-      "visualVerification": "Actual main building of Moscow State University with foreground campus and Lomonosov monument.",
-      "artistExif": "Dmitry A. Mottl",
-      "license": "unverified: no image license supplied by repository; verify original Commons source or replace before public distribution",
-      "publicPath": "/images/msu-main.jpg"
+      "universityId": "msu",
+      "url": "/images/msu-main.jpg",
+      "alt": "Главное здание МГУ имени М. В. Ломоносова",
+      "credit": "Dmitry A. Mottl (EXIF); источник: Mosgotours",
+      "source": "https://github.com/vlterno/mosgotours/blob/master/images/bg_msu.jpg"
     },
     {
-      "university": "МГУ имени М. В. Ломоносова",
-      "source": "https://github.com/vlterno/mosgotours/blob/master/images/moscow_state_university.jpg",
-      "download": "https://raw.githubusercontent.com/vlterno/mosgotours/master/images/moscow_state_university.jpg",
-      "localCandidate": "/tmp/voooz-msu.jpg",
-      "dimensions": [
-        500,
-        328
-      ],
-      "license": "unverified",
-      "publicPath": "/images/msu-2.jpg"
+      "universityId": "msu",
+      "url": "/images/msu-2.jpg",
+      "alt": "Московский государственный университет",
+      "credit": "Источник: Mosgotours",
+      "source": "https://github.com/vlterno/mosgotours/blob/master/images/moscow_state_university.jpg"
+    },
+    {
+      "universityId": "hse",
+      "url": "/images/hse-main.jpg",
+      "alt": "Вход в корпус Высшей школы экономики и скульптура Фемиды",
+      "credit": "Центр ДПО факультета права НИУ ВШЭ; публичное зеркало itspecR/dpo-pravo-hse",
+      "source": "https://github.com/itspecR/dpo-pravo-hse/blob/main/images/hero-composite-1000.jpg",
+      "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+    },
+    {
+      "universityId": "itmo",
+      "url": "/images/itmo-main.jpg",
+      "alt": "Главный корпус Университета ИТМО на Кронверкском проспекте",
+      "credit": "Сайт-шаблон Университета ИТМО; публичный репозиторий tjarrow/itmo-layout",
+      "source": "https://github.com/tjarrow/itmo-layout/blob/master/img/IMG_6600.png",
+      "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника.",
+      "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+    },
+    {
+      "universityId": "spbu",
+      "url": "/images/spbu-main.jpg",
+      "alt": "Здание Двенадцати коллегий Санкт-Петербургского государственного университета",
+      "credit": "Источник: публичное зеркало сайта филиала СПбГУ Sam23656/spbu_site",
+      "source": "https://github.com/Sam23656/spbu_site/blob/main/spbu_site/public/images/image.png",
+      "license": "Репозиторий имеет MIT-лицензию; отдельные условия фотографии не указаны.",
+      "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+    },
+    {
+      "universityId": "mipt",
+      "url": "/images/mipt-main.jpg",
+      "alt": "Лабораторный корпус МФТИ в Долгопрудном",
+      "credit": "Профком МФТИ; публичный репозиторий TimStapleton/Profcom-website",
+      "source": "https://github.com/TimStapleton/Profcom-website/blob/master/profkom-theme-html/build/images/cover-bg.jpg",
+      "license": "Условия повторного использования изображения не указаны; для прототипа с атрибуцией источника."
+    },
+    {
+      "universityId": "nsu",
+      "url": "/images/nsu-main.jpg",
+      "alt": "Старый корпус Новосибирского государственного университета в Академгородке",
+      "credit": "NGS.RU; фотогалерея мехмата НГУ, публичный репозиторий jekay23/expo",
+      "source": "https://github.com/jekay23/expo/blob/master/Public/uploads/photos/oldNSU.png",
+      "license": "Отдельные условия фотографии не указаны; источник и водяной знак NGS.RU сохранены.",
+      "processing": "ImageMagick: format-only JPEG quality 86, auto-orient, fit 1440×1080 without enlargement; no crop or watermark removal."
+    },
+    {
+      "universityId": "kfu",
+      "url": "/images/extra-kfu.jpg",
+      "alt": "Главный корпус Казанского федерального университета на Кремлёвской улице в Казани",
+      "credit": "Фотография из публичной галереи Казани, kakabayewrejepberdi083-hue/kazan",
+      "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university-1.jpg",
+      "license": "Лицензия фотографии в источнике не указана"
+    },
+    {
+      "universityId": "kfu",
+      "url": "/images/extra-kfu-side.jpg",
+      "alt": "Главный корпус КФУ и памятник студенту Ленину в Казани",
+      "credit": "© Aliya Galimullina; фотография из галереи kakabayewrejepberdi083-hue/kazan",
+      "source": "https://github.com/kakabayewrejepberdi083-hue/kazan/blob/main/images/kfu-university.jpg",
+      "license": "Лицензия фотографии в источнике не указана"
+    },
+    {
+      "universityId": "bmstu",
+      "url": "/images/moscow-bmstu-main.jpg",
+      "alt": "Главный учебный корпус МГТУ имени Н. Э. Баумана со стороны главного входа",
+      "credit": "Проект навигации по кампусу Bauman Webmap; автор фотографии не указан",
+      "source": "https://github.com/KMandarinka/Bauman-Webmap/blob/df097f85ee5c8e35a085aa45e4f10a36df3b86fc/Bmap/main/templates/static/images/gz.jpg",
+      "license": "В публичном репозитории отдельная лицензия на изображение не указана",
+      "verification": "Визуально проверено главное учебное здание МГТУ; источник — проект карты именно кампуса Бауманского университета."
+    },
+    {
+      "universityId": "bmstu",
+      "url": "/images/moscow-bmstu-night.jpg",
+      "alt": "Вечерний вид главного учебного корпуса МГТУ имени Н. Э. Баумана с Яузской набережной",
+      "credit": "Сайт кафедры Э3 МГТУ, репозиторий Kirill Eremin; автор фотографии не указан",
+      "source": "https://github.com/iam-kirill-eremin/bmstu-e3.ru/blob/ff60aedeeb6ebef357362978a5b1f525b31ac5ff/assets/images/jpg/bmstu.jpg",
+      "license": "Репозиторий опубликован по MIT (Copyright 2018 Kirill Eremin); отдельный автор и условия фотографии не указаны",
+      "verification": "Визуально проверено главное здание МГТУ на Яузе; изображение находится в проекте сайта кафедры Э3 МГТУ."
+    },
+    {
+      "universityId": "urfu",
+      "url": "/images/regions-urfu-main.jpg",
+      "alt": "Главный учебный корпус УрФУ в Екатеринбурге",
+      "credit": "Vyacheslav Bukharov · CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ural_State_Technical_University_(July_2023)_-_9.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/ural-state-technical-university-july-2023-9.jpg",
+      "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+    },
+    {
+      "universityId": "urfu",
+      "url": "/images/regions-urfu-lenina.jpg",
+      "alt": "Корпус УрФУ на проспекте Ленина, 51 в Екатеринбурге",
+      "credit": "Der.metzger2009 · CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=58145728",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/main-building-ural-state-university.jpg",
+      "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+    },
+    {
+      "universityId": "urfu",
+      "url": "/images/regions-urfu-evening.jpg",
+      "alt": "Главный учебный корпус УрФУ вечером",
+      "credit": "Artyom Vasilyev · CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=129614343",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/2022-12-21.jpg",
+      "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
     }
+  ],
+  "notes": [
+    "Источники, авторство и известные условия использования записаны для каждого снимка; размещение в публичном GitHub само по себе не подтверждает лицензию.",
+    "Для остальных вузов без подтверждённого снимка отображается иллюстрация."
   ]
 }

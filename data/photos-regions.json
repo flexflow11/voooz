@@ -1,0 +1,37 @@
+[
+  {
+    "universityId": "urfu",
+    "images": [
+      {
+        "url": "/images/regions-urfu-main.jpg",
+        "alt": "Главный учебный корпус УрФУ в Екатеринбурге",
+        "credit": "Vyacheslav Bukharov · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ural_State_Technical_University_(July_2023)_-_9.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/ural-state-technical-university-july-2023-9.jpg",
+        "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+      },
+      {
+        "url": "/images/regions-urfu-lenina.jpg",
+        "alt": "Корпус УрФУ на проспекте Ленина, 51 в Екатеринбурге",
+        "credit": "Der.metzger2009 · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/w/index.php?curid=58145728",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/main-building-ural-state-university.jpg",
+        "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+      },
+      {
+        "url": "/images/regions-urfu-evening.jpg",
+        "alt": "Главный учебный корпус УрФУ вечером",
+        "credit": "Artyom Vasilyev · CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/w/index.php?curid=129614343",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "retrievedFrom": "https://github.com/kk228m10-sys/urfu-redesign/blob/494c0a03d74669680f24ba5ef37b9f048ddf70e3/assets/src/2022-12-21.jpg",
+        "modifications": "Уменьшено до 1280 пикселей по длинной стороне и сжато в JPEG; без ретуши."
+      }
+    ]
+  }
+]
