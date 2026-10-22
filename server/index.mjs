@@ -4,6 +4,9 @@ import { resolve, dirname, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { createResearch, safeUrl, sameOrganization, validatePassingScore, publicAiError } from './ai.mjs';
+import { createYandexResearch } from './yandex.mjs';
+import { validateAdmissionProgram } from '../shared/admissions.mjs';
+import { admissionsRequest } from './admissions-prompt.mjs';
 import { createCatalogRecommendations, filterUniversities, localRecommendations, localReason, noKeyNotice } from '../shared/catalog.mjs';
 export { validateProfile } from '../shared/catalog.mjs';
 
@@ -42,10 +45,19 @@ async function readBody(req) {
 
 export async function createServer(options = {}) {
   const catalog = options.catalog || JSON.parse(await readFile(resolve(root, 'data/catalog.json'), 'utf8'));
-  const ai = createResearch({ key: options.aiKey ?? process.env.VOOOZ_AI_API_KEY ?? process.env.OPENAI_API_KEY, model: options.model ?? process.env.VOOOZ_AI_MODEL ?? 'gpt-4.1', fetchImpl: options.fetchImpl, cacheDir: options.cacheDir === false ? undefined : options.cacheDir ?? resolve(root, '.cache/research') });
+  const provider = options.aiProvider ?? process.env.VOOOZ_AI_PROVIDER ?? 'yandex';
+  if (!['yandex', 'openai'].includes(provider)) throw new Error('Неизвестный провайдер AI.');
+  const aiOptions = {
+    key: options.aiKey ?? (provider === 'yandex' ? process.env.YANDEX_API_KEY : process.env.VOOOZ_AI_API_KEY ?? process.env.OPENAI_API_KEY),
+    folderId: options.folderId ?? process.env.YANDEX_FOLDER_ID,
+    model: options.model ?? (provider === 'yandex' ? process.env.YANDEX_MODEL : process.env.VOOOZ_AI_MODEL),
+    fetchImpl: options.fetchImpl,
+    cacheDir: options.cacheDir === false ? undefined : options.cacheDir ?? resolve(root, '.cache/research'),
+  };
+  const ai = provider === 'yandex' ? createYandexResearch(aiOptions) : createResearch(aiOptions);
   const dynamic = new Map();
   const requests = new Map();
-  const aiInfo = used => ({ configured: ai.configured, used, provider: 'OpenAI', model: ai.model });
+  const aiInfo = used => ({ configured: ai.configured, used, provider: provider === 'yandex' ? 'Yandex AI Studio' : 'OpenAI', model: ai.model });
   const allUniversities = () => [...catalog.universities, ...dynamic.values()];
   const rateLimit = req => {
     const ip = req.socket.remoteAddress;
@@ -118,22 +130,37 @@ export async function createServer(options = {}) {
           rateLimit(req);
           try {
             if (profile.city && !candidates.length) { await searchCity(profile.city); candidates = allUniversities().filter(u => u.cityId === profile.city); recommendations = localRecommendations(candidates, profile, catalog); }
+            // Limit research to a relevant shortlist. Each search covers up to five official domains.
+            const shortlist = localRecommendations(candidates, profile, catalog, 5).map(r => r.university);
             const answer = await ai.research('admissions_recommendations', {
               profile,
-              universities: candidates.map(u => ({ id: u.id, name: u.name, website: u.website })),
-              request: 'Подбери до 6 программ среди перечисленных вузов. При отсутствии специальности ориентируйся на предметы ЕГЭ. Для каждого результата найди официальные требования и исторический проходной балл. Не подменяй его минимальным баллом подачи заявления. subjects содержат точные названия из profile.exams. Формат {"recommendations":[{"universityId":"из списка","reason":"почему стоит изучить программу, без обещаний поступления","passingScore":null или {"value":270,"year":2025,"source":"точный URL страницы приёмной комиссии, найденный поиском","program":"название программы","subjects":["Русский язык","Математика","Информатика"],"funding":"budget или paid","type":"last_admitted"}}]}. Если баллы не найдены, passingScore:null. Не добавляй вузы, которых нет в списке.',
+              universities: shortlist.map(u => ({ id: u.id, name: u.name, website: u.website })),
+              request: admissionsRequest,
             });
             const proposed = answer?.result.recommendations;
             if (Array.isArray(proposed)) {
               const seen = new Set();
               const checked = proposed.slice(0, 12).flatMap(item => {
-                const university = candidates.find(u => u.id === item.universityId);
+                if (!item || typeof item !== 'object' || Array.isArray(item)) return [];
+                const university = shortlist.find(u => u.id === item.universityId);
                 if (!university || seen.has(university.id)) return [];
                 seen.add(university.id);
+                const admission = validateAdmissionProgram(item.admission, answer.sources, university, profile);
+                // Legacy alternative provider data remains source checked; it never becomes a chance.
                 const passingScore = validatePassingScore(item.passingScore, answer.sources, university, profile.exams);
-                return [{ university, reason: str(item.reason, 1000) || localReason(university, profile.specialty), passingScore, subjectMatch: passingScore?.subjectMatch ?? null }];
-              }).slice(0, 6);
-              if (checked.length) { recommendations = checked; used = true; }
+                return [{ university, reason: str(item.reason, 1000) || localReason(university, profile.specialty), admission, passingScore, subjectMatch: admission?.subjectMatch ?? passingScore?.subjectMatch ?? null }];
+              }).sort((a, b) => {
+                const priority = r => r.admission?.eligible === true ? 2 : r.admission?.eligible === false ? 0 : 1;
+                return priority(b) - priority(a);
+              });
+              if (checked.length) {
+                recommendations = checked.filter(r => r.admission?.eligible !== false).slice(0, 3); used = true;
+                notice = !recommendations.length
+                  ? 'Найденные программы не подходят по минимумам ЕГЭ или не имеют бюджетных мест. Измени условия поиска или проверь другие программы.'
+                  : recommendations.some(r => r.admission)
+                  ? 'Правила найдены нейросетью по официальным источникам. Баллы рассчитаны по указанной программе; достижения — по анкете, с последующей проверкой документов вузом.'
+                  : 'Нейросеть предложила направления, но полные условия конкурса не подтверждены. Это варианты для изучения; оценка поступления пока недоступна.';
+              }
               else notice = 'Не удалось подтвердить рекомендации по официальным источникам. Показаны вузы справочного каталога.';
             } else notice = 'Ответ нейросети не содержит проверяемых рекомендаций. Показан справочный каталог.';
           } catch (e) { notice = publicAiError(e); }

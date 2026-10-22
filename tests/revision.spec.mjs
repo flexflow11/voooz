@@ -48,7 +48,7 @@ test('empty EGE fields show styled accessible errors, focus the first invalid fi
     await expect(inputs[index]).toHaveAttribute('aria-describedby', new RegExp(`ege-score-error-${index}`));
     await expect(dialog.locator(`#ege-score-error-${index}`)).toContainText('Укажи балл за этот предмет');
   }
-  expect(await inputs[0].evaluate(input => getComputedStyle(input).borderColor)).not.toBe(normalBorder);
+  await expect.poll(() => inputs[0].evaluate(input => getComputedStyle(input).borderColor)).not.toBe(normalBorder);
   expect(requests).toHaveLength(0);
   await dialog.screenshot({ path: '/tmp/voooz-ege-validation.png', animations: 'disabled' });
   await inputs[0].fill('90');

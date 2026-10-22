@@ -1,0 +1,56 @@
+.analysis-status { display: flex; align-items: center; gap: 8px; color: #7b8871; font-size: 11px; margin: 0 0 16px; }
+.analysis-active { color: #3c6848; }
+.admissions-card.recommendation { display: grid; grid-template-columns: 105px minmax(0, 1fr) 124px; gap: 20px; align-items: start; padding: 23px 0; }
+.recommendation-image-button { border: 0; padding: 0; background: transparent; border-radius: 12px; overflow: hidden; }
+.admissions-card .recommendation-photo { width: 105px; height: 128px; object-fit: cover; border-radius: 12px; }
+.recommendation-title { display: flex; align-items: center; gap: 10px; background: transparent; padding: 0; text-align: left; color: #284735; }
+.recommendation-title h3 { margin: 8px 0 10px; }
+.recommendation-title svg { flex-shrink: 0; }
+.admissions-card .recommendation-main { min-width: 0; }
+.admission-program { display: flex; align-items: flex-start; gap: 8px; color: #486244; margin-bottom: 5px; }
+.admission-program svg { flex-shrink: 0; margin-top: 2px; }
+.admission-context { display: block; color: #8b9581; font-size: 10px; line-height: 1.8; overflow-wrap: anywhere; }
+.admission-numbers { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 12px; margin: 15px 0; padding: 13px 0; border-top: 1px solid #e2e7d9; border-bottom: 1px solid #e2e7d9; }
+.admission-numbers > div > span { font-size: 9px; color: #8b967c; display: block; line-height: 1.6; }
+.admission-numbers strong { display: block; font-size: 24px; line-height: 1.5; font-family: 'Lora', serif; font-weight: 400; color: #355340; }
+.admission-numbers strong small { font-size: 12px; color: #9aa38d; }
+.admission-numbers p { font-size: 9px; line-height: 1.65; margin: 0; color: #8c9782; }
+.admission-subjects, .admission-explanation { font-size: 10px !important; color: #7b8970; line-height: 1.8; }
+.achievement-breakdown { border: 1px solid #e2e7d9; border-radius: 8px; padding: 10px 12px; margin: 12px 0; color: #7b8970; font-size: 10px; }
+.achievement-breakdown summary { cursor: pointer; }
+.achievement-breakdown p { font-size: 10px; }
+.achievement-breakdown a { text-decoration: underline; text-underline-offset: 2px; }
+.admission-requirements p { display: flex; gap: 7px; align-items: start; color: #a0835c; font-size: 10px; }
+.admission-requirements svg { flex-shrink: 0; margin-top: 2px; }
+.admission-sources { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.admission-sources a { display: flex; align-items: center; gap: 4px; font-size: 9px; color: #718758; text-decoration: underline; text-underline-offset: 3px; }
+.admission-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.admission-actions .text-button { font-size: 10px; }
+.admission-actions .button { font-size: 10px; padding: 11px 12px; min-height: auto; }
+.application-pending { color: #9aa18f; font-size: 9px; }
+.chance-block { text-align: center; padding-top: 8px; }
+.chance-dial { --chance: 0%; width: 100px; height: 100px; padding: 7px; margin: 0 auto 13px; border-radius: 50%; background: conic-gradient(from -90deg, #91b861 var(--chance), #e7eddc 0); transform: rotate(-1deg); }
+.chance-dial.chance-unavailable { background: repeating-conic-gradient(#dce5cf 0deg 22deg, #f5f7ee 22deg 28deg); }
+.chance-center { display: flex; height: 100%; align-items: center; justify-content: center; flex-direction: column; background: #fafbf5; border-radius: 50%; transform: rotate(1deg); }
+.chance-center strong { font-size: 30px; font-family: 'Lora', serif; font-weight: 400; color: #3b5b42; line-height: 1.2; }
+.chance-center strong small { font-family: 'Golos Text', sans-serif; font-size: 12px; margin-left: 2px; }
+.chance-center > span { color: #97a287; font-size: 6px; letter-spacing: 1px; margin-top: 7px; }
+.chance-block > strong { font-size: 9px; color: #6f805e; font-weight: 500; }
+.chance-block > p { margin: 5px 0 0; font-size: 8px; color: #9aa48e; line-height: 1.7; }
+@media (max-width: 700px) {
+  .admissions-card.recommendation { grid-template-columns: 62px minmax(0, 1fr); gap: 14px; }
+  .admissions-card .recommendation-photo { width: 62px; height: 82px; border-radius: 9px; }
+  .admissions-card .recommendation-main { grid-column: 2; }
+  .chance-block { grid-column: 1 / -1; display: grid; grid-template-columns: 62px minmax(0, 1fr); column-gap: 14px; text-align: left; padding: 12px; background: #f0f4e8; border-radius: 12px; }
+  .chance-dial { grid-row: 1 / 3; width: 60px; height: 60px; padding: 5px; margin: 0; }
+  .chance-center strong { font-size: 20px; }
+  .chance-center > span { display: none; }
+  .chance-block > strong { align-self: end; font-size: 11px; }
+  .chance-block > p { font-size: 10px; }
+  .admission-numbers { gap: 8px; grid-template-columns: 1fr; }
+  .admission-numbers > div { display: grid; grid-template-columns: 1fr auto; gap: 2px 7px; align-items: baseline; }
+  .admission-numbers > div > p { grid-column: 1 / -1; }
+  .admission-numbers strong { font-size: 21px; }
+  .admission-numbers > div > span { font-size: 10px; }
+  .admission-actions { align-items: start; flex-direction: column; }
+}

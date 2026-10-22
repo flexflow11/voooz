@@ -18,7 +18,7 @@ const catalog = {
 const profile = { exams: [{ subject: 'Русский язык', score: 88 }, { subject: 'Математика', score: 79 }, { subject: 'Информатика', score: 91 }], specialty: '09.03.01', achievements: { gto: true, certificate: true }, city: 'moscow' };
 
 async function withServer(options, action) {
-  const server = await createServer({ catalog, aiKey: '', cacheDir: false, ...options });
+  const server = await createServer({ catalog, aiProvider: 'openai', aiKey: '', cacheDir: false, ...options });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   const base = `http://127.0.0.1:${server.address().port}`;
   try { await action(base); } finally { server.closeAllConnections(); await new Promise(done => server.close(done)); }

@@ -149,21 +149,21 @@ function Profile({ catalog, profile, setProfile, onClose, onSubmit, pending, err
         <div className="section-heading second-section"><span className="step-number">03</span><div><h3>Твои достижения</h3><p>Если есть — добавь, чтобы не забыть проверить льготы.</p></div></div>
         <div className="achievements">{achievementFields.map(({ key, label, icon: Icon, options, hint }) => <details key={key}><summary><span><Icon size={18} />{label}</span><span className="achievement-summary">{profile.achievements[key] && profile.achievements[key] !== 'Нет' ? <span className="achievement-mark"><Check size={14} />Есть</span> : null}<ChevronDown size={18} /></span></summary><div className="achievement-content"><select aria-label={label} value={profile.achievements[key] || 'Нет'} onChange={e => setProfile(p => ({ ...p, achievements: { ...p.achievements, [key]: e.target.value } }))}>{options.map(o => <option key={o}>{o}</option>)}</select><p>{hint}</p></div></details>)}</div>
         <label className="notes-label">Примечание к достижениям<textarea maxLength={1000} placeholder="Например: призёр олимпиады, название и год" value={profile.notes || ''} onChange={e => setProfile(p => ({ ...p, notes: e.target.value }))} /></label>
-      </div><aside className="profile-summary"><div className="summary-symbol"><GraduationCap size={38} strokeWidth={1.3} /></div><span className="eyebrow">ТВОЯ ОТПРАВНАЯ ТОЧКА</span><div className="score-total">{sum}<span>баллов ЕГЭ</span></div><p>Сумма {profile.exams.length} предметов. Для конкурса вуз учитывает свой набор вступительных испытаний.</p><div className="summary-line"><MapPin size={17} /><span>{cityName || 'Вся Россия'}</span></div><div className="summary-line"><BookOpen size={17} /><span>{selectedSpecialty?.name || 'Все направления'}</span></div><div className="info-note"><Info size={17} /><p>Достижения проверяются отдельно. Прошлогодний проходной балл не гарантирует поступление.</p></div><button className="button button-dark full-width" disabled={pending} type="submit">{pending ? <><LoaderCircle className="spin" size={18} /> Подбираем…</> : <>Подобрать вуз <ArrowUpRight size={19} /></>}</button><p className="privacy-note">Данные анкеты сохраняются только в этом браузере.</p></aside></div>
+      </div><aside className="profile-summary"><div className="summary-symbol"><GraduationCap size={38} strokeWidth={1.3} /></div><span className="eyebrow">ТВОЯ ОТПРАВНАЯ ТОЧКА</span><div className="score-total">{sum}<span>баллов ЕГЭ</span></div><p>Сумма всех {profile.exams.length} предметов. Для каждой программы учитываем нужные три ЕГЭ и достижения: максимум 310.</p><div className="summary-line"><MapPin size={17} /><span>{cityName || 'Вся Россия'}</span></div><div className="summary-line"><BookOpen size={17} /><span>{selectedSpecialty?.name || 'Все направления'}</span></div><div className="info-note"><Info size={17} /><p>Достижения проверяются отдельно. Прошлогодний проходной балл не гарантирует поступление.</p></div><button className="button button-dark full-width" disabled={pending} type="submit">{pending ? <><LoaderCircle className="spin" size={18} /> Подбираем…</> : <>Подобрать вуз <ArrowUpRight size={19} /></>}</button><p className="privacy-note">{catalog.ai?.configured ? `Анкета хранится в браузере. Для анализа данные отправляются серверу и ${catalog.ai.provider || 'Yandex AI Studio'}.` : 'Анкета хранится в этом браузере. Сейчас доступен подбор по каталогу.'}</p></aside></div>
       {error && <div role="alert" className="error-note"><Info size={20} /><div><strong>Давай проверим анкету</strong><p>{error}</p></div></div>}
     </form>
   </Modal>;
 }
 
-function Detail({ university: initial, city, saved, onSave, onClose }) {
+function Detail({ university: initial, city, saved, onSave, onClose, research }) {
   const [u, setU] = useState(initial);
   const [image, setImage] = useState(0);
   const [notice, setNotice] = useState('');
   useEffect(() => {
     const controller = new AbortController();
-    apiFetch(`/api/universities/${encodeURIComponent(initial.id)}`, { signal: controller.signal }).then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(data => { setU(data.university || initial); setNotice(data.notice || ''); }).catch(() => {});
+    apiFetch(`/api/universities/${encodeURIComponent(initial.id)}${research ? '?research=1' : ''}`, { signal: controller.signal }).then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(data => { setU(data.university || initial); setNotice(data.notice || ''); }).catch(() => {});
     return () => controller.abort();
-  }, [initial]);
+  }, [initial, research]);
   const website = safeUrl(u.website || u.web_pages?.[0]);
   return <Modal title={u.shortName || u.name} onClose={onClose} wide className="detail-modal">
     <div className="detail-gallery"><Photo photo={u.images?.[image]} title={u.name} className="detail-main-photo" loading="eager" /><div className="detail-image-overlay"><span className="tag"><MapPin size={14} />{city?.name || u.city || 'Россия'}</span><button className={`save-button ${saved ? 'saved' : ''}`} aria-label={saved ? 'Убрать из избранного' : 'В избранное'} onClick={() => onSave(u.id)} aria-pressed={saved}><Bookmark size={20} fill={saved ? 'currentColor' : 'none'} /></button></div></div>
@@ -173,12 +173,63 @@ function Detail({ university: initial, city, saved, onSave, onClose }) {
   </Modal>;
 }
 
+function ChanceDial({ admission }) {
+  const fit = admission?.historicalFit;
+  const percent = fit && Number.isFinite(fit.percent) ? Math.max(0, Math.min(100, fit.percent)) : null;
+  return <div className="chance-block">
+    <div className={`chance-dial ${percent == null ? 'chance-unavailable' : ''}`} style={{ '--chance': `${percent ?? 0}%` }} role="img" aria-label={percent == null ? 'Шанс поступления: недостаточно данных' : `Историческое совпадение: ${percent} процентов лет`}>
+      <span className="chance-center"><strong>{percent == null ? '—' : percent}<small>{percent == null ? '' : '%'}</small></strong><span>{percent == null ? 'НЕТ ОЦЕНКИ' : 'ПО ИСТОРИИ'}</span></span>
+    </div>
+    <strong>{percent == null ? 'Шанс пока неизвестен' : 'Сравнение по годам'}</strong>
+    <p>{percent == null ? 'Для процента нужны сопоставимые данные о конкурсе.' : `Твой балл не ниже проходного в ${fit.matchingYears} из ${fit.totalYears} лет. Это не вероятность поступления.`}</p>
+  </div>;
+}
+
+function AdmissionFacts({ admission: a }) {
+  if (!a) return null;
+  const latest = a.history?.slice().sort((x, y) => y.year - x.year)[0];
+  return <div className="admission-facts">
+    <p className="admission-program"><BookOpen size={15} /><strong>{a.program}</strong></p>
+    <span className="admission-context">{a.year} · {a.funding === 'budget' ? 'Бюджет' : 'Платное'} · {a.campus} · {a.competitionGroup}</span>
+    <div className="admission-numbers">
+      <div className="admission-score"><span>Твой конкурсный балл</span><strong>{a.competitionScore ?? '—'}<small> / 310</small></strong><p>{a.examScore == null ? 'Набор ЕГЭ не подтверждён' : `${a.examScore} ЕГЭ + ${a.achievementPoints ?? '?'} за достижения`}</p></div>
+      <div><span>Бюджетных мест</span><strong>{a.budgetSeats?.value ?? '—'}</strong><p>{a.budgetSeats ? `В этой группе · ${a.budgetSeats.year}` : 'Число мест не подтверждено'}</p></div>
+      <div><span>Проходной ранее</span><strong>{latest?.value ?? '—'}</strong><p>{latest ? `Итоги приёма ${latest.year}` : 'Нет сопоставимых итогов'}</p></div>
+    </div>
+    {a.subjects?.length > 0 && <p className="admission-subjects">ЕГЭ: {a.subjects.map(s => typeof s === 'string' ? s : s.subject).join(' · ')}</p>}
+    {a.achievementPoints != null && <p className="admission-explanation">Достижения учтены по анкете. Приёмная комиссия проверит подтверждающие документы.</p>}
+    {a.achievementPending?.map((text, i) => <p className="admission-explanation" key={i}>{text}</p>)}
+    {a.olympiadNotice && <p className="admission-explanation">{a.olympiadNotice}</p>}
+    {a.achievementDetails?.length > 0 && <details className="achievement-breakdown"><summary>Как учтены достижения</summary>{a.achievementDetails.map((item, i) => <p key={i}><strong>{item.value}: +{item.points}</strong> · {item.description}{safeUrl(item.source) && <> · <a href={item.source} target="_blank" rel="noopener noreferrer">Правила вуза</a></>}</p>)}</details>}
+    {a.unmetRequirements?.length > 0 && <div className="admission-requirements">{a.unmetRequirements.map((text, i) => <p key={i}><Info size={14} />{text}</p>)}</div>}
+    <div className="admission-sources">{[['Правила приёма', a.source], ['План мест', a.budgetSeats?.source], [latest ? `Итоги ${latest.year}` : '', latest?.source]].filter(([, url]) => safeUrl(url)).map(([label, url]) => <a key={label} href={url} target="_blank" rel="noopener noreferrer">{label}<ExternalLink size={11} /></a>)}</div>
+  </div>;
+}
+
 function Results({ result, cities, onClose, onOpen, onEdit }) {
-  return <Modal title="Твоя подборка университетов" onClose={onClose} wide className="results-modal"><div className="results-intro"><div className="result-icon"><Compass size={32} /></div><div><span className="eyebrow">НАЧНЁМ С ЭТИХ ВАРИАНТОВ</span><p>Ты набрал(а) <strong>{result.totalScore} баллов ЕГЭ</strong>. Ниже — вузы для дальнейшего знакомства.</p></div></div><div className="info-note result-note"><Info size={18} /><p>{result.notice || 'Это предварительная подборка по интересам. Проходные баллы и льготы необходимо сверить с правилами приёма конкретной программы.'}</p></div><div className="recommendations">{(result.recommendations || []).map((r, index) => { const u = r.university; return <article key={u.id} className="recommendation"><Photo photo={u.images?.[0]} title={u.shortName || u.name} className="recommendation-photo" /><div className="recommendation-main"><span className="recommendation-number">ВАРИАНТ {String(index + 1).padStart(2, '0')} · {cities.find(c => c.id === u.cityId)?.name || u.city || 'Россия'}</span><h3>{u.shortName || u.name}</h3><p>{r.reason}</p>{r.passingScore ? <p className="passing-score">{r.passingScore.value} баллов · {r.passingScore.year} год · {r.passingScore.program}{safeUrl(sourceUrl(r.passingScore.source)) && <a href={sourceUrl(r.passingScore.source)} target="_blank" rel="noopener noreferrer">Источник <ExternalLink size={12} /></a>}</p> : <span className="unverified-label">Проходной балл требует проверки</span>}</div><button className="icon-button recommendation-open" onClick={() => onOpen(u)} aria-label={`Ознакомиться: ${u.name}`}><ArrowUpRight size={23} /></button></article>; })}{!result.recommendations?.length && <div className="empty-state"><Search size={30} /><h3>Пока нет подходящих записей</h3><p>Попробуй изменить направление или выбрать всю Россию.</p></div>}</div><button className="button button-outline" onClick={onEdit}><ArrowLeft size={17} /> Изменить анкету</button></Modal>;
+  return <Modal title="Твоя подборка университетов" onClose={onClose} wide className="results-modal">
+    <div className="results-intro"><div className="result-icon"><Compass size={32} /></div><div><span className="eyebrow">ТРИ ВАРИАНТА ДЛЯ ТВОЕГО БУДУЩЕГО</span><p>В анкете <strong>{result.totalScore} баллов ЕГЭ</strong>. Конкурсный балл считаем отдельно для каждой программы.</p></div></div>
+    <div className={`analysis-status ${result.ai?.used ? 'analysis-active' : ''}`}><Sparkles size={15} /><span>{result.ai?.used ? `${result.ai.provider || 'Yandex AI Studio'} · онлайн-анализ` : 'Подбор по каталогу · онлайн-анализ недоступен'}</span></div>
+    <div className="info-note result-note"><Info size={18} /><p>{result.notice || 'Условия приёма необходимо сверить с правилами конкретной программы.'}</p></div>
+    <div className="recommendations">{(result.recommendations || []).slice(0, 3).map((r, index) => {
+      const u = r.university;
+      const applyUrl = safeUrl(r.admission?.applyUrl);
+      return <article key={u.id} className="recommendation admissions-card">
+        <button className="recommendation-image-button" onClick={() => onOpen(u)} aria-label={`Ознакомиться: ${u.name}`}><Photo photo={u.images?.[0]} title={u.shortName || u.name} className="recommendation-photo" /></button>
+        <div className="recommendation-main"><span className="recommendation-number">ВАРИАНТ {String(index + 1).padStart(2, '0')} · {cities.find(c => c.id === u.cityId)?.name || u.city || 'Россия'}</span>
+          <button className="recommendation-title" onClick={() => onOpen(u)}><h3>{u.shortName || u.name}</h3><ArrowUpRight size={20} /></button><p>{r.reason}</p>
+          <AdmissionFacts admission={r.admission} />
+          {!r.admission && (r.passingScore ? <p className="passing-score">{r.passingScore.value} баллов · {r.passingScore.year} год · {r.passingScore.program}{safeUrl(sourceUrl(r.passingScore.source)) && <a href={sourceUrl(r.passingScore.source)} target="_blank" rel="noopener noreferrer">Источник <ExternalLink size={12} /></a>}</p> : <span className="unverified-label">Проходной балл требует проверки</span>)}
+          <div className="admission-actions"><button className="text-button" onClick={() => onOpen(u)}>Подробнее о вузе <ArrowRight size={15} /></button>{applyUrl ? <a className="button button-dark admission-apply" href={applyUrl} target="_blank" rel="noopener noreferrer">Подать документы <ArrowUpRight size={16} /></a> : <span className="application-pending">Страница подачи пока не подтверждена</span>}</div>
+        </div><ChanceDial admission={r.admission} />
+      </article>;
+    })}{!result.recommendations?.length && <div className="empty-state"><Search size={30} /><h3>Пока нет подходящих записей</h3><p>Попробуй изменить направление или выбрать всю Россию.</p></div>}</div>
+    <p className="fine-print muted">{result.disclaimer}</p><button className="button button-outline" onClick={onEdit}><ArrowLeft size={17} /> Изменить анкету</button>
+  </Modal>;
 }
 
 function HowItWorks({ onClose, onStart }) {
-  return <Modal title="Большой выбор. Твой путь." onClose={onClose}><p className="modal-subtitle">Сделай первый шаг к университету без лишней суеты.</p><div className="how-steps">{[['01', 'Выбери город', 'Смотри университеты по всей России или там, где хочешь учиться.'], ['02', 'Расскажи о себе', 'Добавь баллы ЕГЭ, интересное направление и свои достижения.'], ['03', 'Изучи варианты', 'Знакомься с вузами и сверяй условия приёма на официальных сайтах.']].map(([n, title, text]) => <div key={n}><span className="step-number">{n}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div><div className="info-note"><Info size={18} /><p>Сейчас подбор работает по каталогу. Полное покрытие вузов и актуальные проходные баллы пока не подтверждены.</p></div><button className="button button-dark full-width" onClick={onStart}>Заполнить характеристики <ArrowUpRight size={18} /></button></Modal>;
+  return <Modal title="Большой выбор. Твой путь." onClose={onClose}><p className="modal-subtitle">Сделай первый шаг к университету без лишней суеты.</p><div className="how-steps">{[['01', 'Выбери город', 'Смотри университеты по всей России или там, где хочешь учиться.'], ['02', 'Расскажи о себе', 'Добавь баллы ЕГЭ, интересное направление и свои достижения.'], ['03', 'Изучи варианты', 'Знакомься с вузами и сверяй условия приёма на официальных сайтах.']].map(([n, title, text]) => <div key={n}><span className="step-number">{n}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div><div className="info-note"><Info size={18} /><p>Условия поступления зависят от программы и года. Для расчёта нужны официальные правила и результаты приёма.</p></div><button className="button button-dark full-width" onClick={onStart}>Заполнить характеристики <ArrowUpRight size={18} /></button></Modal>;
 }
 
 export default function App() {
@@ -270,7 +321,7 @@ export default function App() {
     {modal === 'profile' && !catalog && <Modal title="Каталог загружается" onClose={closeModal}><p className="modal-subtitle">{loadError || 'Подожди немного: сначала нужно загрузить каталог направлений.'}</p></Modal>}
     {modal === 'results' && result && <Results result={result} cities={catalog?.cities || []} onClose={closeModal} onOpen={u => { setModal(null); setDetail(u); }} onEdit={startProfile} />}
     {modal === 'how' && <HowItWorks onClose={closeModal} onStart={startProfile} />}
-    {modal === 'about' && <Modal title="ВОООЗ — пространство выбора" onClose={closeModal}><p className="modal-subtitle">Помогаем познакомиться с университетами России и сделать первый шаг к своей профессии.</p><div className="about-content"><p>В каталоге сейчас {catalog?.universities?.length || 0} вузов и {catalog?.cities?.length || 0} городов. Поиск специальностей включает {catalog?.specialties?.length || 0} направлений высшего образования.</p><p>Это развивающийся каталог, а не полный реестр или официальный рейтинг. Подбор предварительный и не оценивает вероятность поступления. Нейросеть пока не подключена.</p><p>Баллы ЕГЭ, избранное и выбранный город хранятся локально в браузере. {standaloneMode ? 'В этой версии анкета обрабатывается на устройстве, без отправки на сервер.' : 'При подборе анкета передаётся серверу приложения.'} Достижения не превращаются в баллы без правил конкретного вуза.</p>{catalog?.meta?.sources?.length > 0 && <><h3>Источники каталога</h3><ul>{catalog.meta.sources.map((s, i) => { const url = safeUrl(typeof s === 'string' ? s : s.url); return <li key={i}>{url ? <a href={url} target="_blank" rel="noopener noreferrer">{s.name || s.title || new URL(url).hostname} <ExternalLink size={12} /></a> : typeof s === 'string' ? s : s.name || s.title}</li>; })}</ul></>}</div></Modal>}
-    {detail && <Detail university={detail} city={catalog?.cities.find(c => c.id === detail.cityId)} saved={saved.includes(detail.id)} onSave={toggleSaved} onClose={closeDetail} />}
+    {modal === 'about' && <Modal title="ВОООЗ — пространство выбора" onClose={closeModal}><p className="modal-subtitle">Помогаем познакомиться с университетами России и сделать первый шаг к своей профессии.</p><div className="about-content"><p>В каталоге сейчас {catalog?.universities?.length || 0} вузов и {catalog?.cities?.length || 0} городов. Поиск специальностей включает {catalog?.specialties?.length || 0} направлений высшего образования.</p><p>Это развивающийся каталог, а не полный реестр или официальный рейтинг. Подбор предварительный. {catalog?.ai?.configured ? 'Онлайн-анализ использует Yandex AI Studio и официальные источники. Круг показывает сравнение с историей, а не гарантию поступления.' : 'Онлайн-анализ пока недоступен; подбор работает по каталогу.'}</p><p>Баллы ЕГЭ, избранное и выбранный город хранятся локально в браузере. {standaloneMode ? 'В этой версии анкета обрабатывается на устройстве, без отправки на сервер.' : 'При подборе анкета передаётся серверу приложения.'} Достижения не превращаются в баллы без правил конкретного вуза.</p>{catalog?.meta?.sources?.length > 0 && <><h3>Источники каталога</h3><ul>{catalog.meta.sources.map((s, i) => { const url = safeUrl(typeof s === 'string' ? s : s.url); return <li key={i}>{url ? <a href={url} target="_blank" rel="noopener noreferrer">{s.name || s.title || new URL(url).hostname} <ExternalLink size={12} /></a> : typeof s === 'string' ? s : s.name || s.title}</li>; })}</ul></>}</div></Modal>}
+    {detail && <Detail university={detail} city={catalog?.cities.find(c => c.id === detail.cityId)} saved={saved.includes(detail.id)} onSave={toggleSaved} onClose={closeDetail} research={!!catalog?.ai?.configured} />}
   </>;
 }

@@ -55,7 +55,7 @@ const subjectKeywords = {
   'Иностранный язык': ['лингвист', 'филолог', 'международ', 'язык', 'перевод'],
 };
 
-export function localRecommendations(candidates, profile, catalog) {
+export function localRecommendations(candidates, profile, catalog, limit = 3) {
   const specialtyRecord = catalog.specialties.find(s => s.code === profile.specialty || s.name === profile.specialty);
   const specialtyName = specialtyRecord?.name || profile.specialty;
   const terms = specialtyName.toLocaleLowerCase('ru').split(/[\s,()\-/]+/).filter(w => w.length >= 5);
@@ -66,7 +66,7 @@ export function localRecommendations(candidates, profile, catalog) {
     const subjectHits = subjectTerms.filter(t => haystack.includes(t)).length;
     return { university, score: specialtyHits * 10 + subjectHits, specialtyHits, subjectHits };
   }).sort((a, b) => b.score - a.score);
-  return scored.slice(0, 6).map(({ university, specialtyHits, subjectHits }) => ({
+  return scored.slice(0, limit).map(({ university, specialtyHits, subjectHits }) => ({
     university,
     reason: specialtyHits > 0
       ? `В описании вуза есть направления, близкие к «${specialtyName}». Это тематическое совпадение; наличие программы и условия поступления нужно проверить.`
@@ -75,6 +75,7 @@ export function localRecommendations(candidates, profile, catalog) {
         : localReason(university, specialtyName),
     passingScore: null,
     subjectMatch: null,
+    admission: null,
     relevance: specialtyHits > 0 || (!specialtyName && subjectHits > 0) ? 'thematic' : 'catalog',
   }));
 }

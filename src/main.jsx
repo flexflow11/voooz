@@ -16,5 +16,6 @@ import '@fontsource/lora/cyrillic-400-italic.css';
 import '@fontsource/lora/latin-400-italic.css';
 import './styles.css';
 import './refinements.css';
+import './admissions.css';
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);
