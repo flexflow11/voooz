@@ -34,7 +34,7 @@ test('offline catalog recommendation response matches the server response and do
   assert.match(local.disclaimer, /не гарантирует/);
   assert.throws(() => createCatalogRecommendations({ ...profile, exams: [{ subject: 'Русский язык', score: 101 }, ...profile.exams.slice(1)] }, catalog), error => error.status === 400);
 
-  const server = await createServer({ catalog, aiKey: '', cacheDir: false });
+  const server = await createServer({ catalog, aiProvider: 'yandex', aiKey: '', cacheDir: false });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   try {
     const response = await fetch(`http://127.0.0.1:${server.address().port}/api/recommendations`, {

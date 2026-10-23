@@ -17,7 +17,7 @@ test('every foreign language shown in the profile can be submitted, without doub
 });
 
 test('achievement notes are retained in the submitted profile and bounded', async () => {
-  const server = await createServer({ catalog, aiKey: '', cacheDir: false });
+  const server = await createServer({ catalog, aiProvider: 'yandex', aiKey: '', cacheDir: false });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   try {
     const response = await fetch(`http://127.0.0.1:${server.address().port}/api/recommendations`, {
@@ -37,7 +37,7 @@ test('achievement notes are retained in the submitted profile and bounded', asyn
 });
 
 test('local recommendations remain available after repeated requests from a shared proxy address', async () => {
-  const server = await createServer({ catalog, aiKey: '', cacheDir: false });
+  const server = await createServer({ catalog, aiProvider: 'yandex', aiKey: '', cacheDir: false });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   try {
     for (let index = 0; index < 15; index++) {

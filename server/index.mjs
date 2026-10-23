@@ -5,8 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { createResearch, safeUrl, sameOrganization, validatePassingScore, publicAiError } from './ai.mjs';
 import { createYandexResearch } from './yandex.mjs';
+import { createOllamaResearch } from './ollama.mjs';
+import { createEvidenceCollector } from './evidence.mjs';
 import { validateAdmissionProgram } from '../shared/admissions.mjs';
 import { admissionsRequest } from './admissions-prompt.mjs';
+import { localAdmissionsRequest } from './local-admissions-prompt.mjs';
 import { createCatalogRecommendations, filterUniversities, localRecommendations, localReason, noKeyNotice } from '../shared/catalog.mjs';
 export { validateProfile } from '../shared/catalog.mjs';
 
@@ -45,19 +48,41 @@ async function readBody(req) {
 
 export async function createServer(options = {}) {
   const catalog = options.catalog || JSON.parse(await readFile(resolve(root, 'data/catalog.json'), 'utf8'));
-  const provider = options.aiProvider ?? process.env.VOOOZ_AI_PROVIDER ?? 'yandex';
-  if (!['yandex', 'openai'].includes(provider)) throw new Error('Неизвестный провайдер AI.');
+  const provider = options.aiProvider ?? process.env.VOOOZ_AI_PROVIDER ?? 'ollama';
+  if (!['ollama', 'yandex', 'openai'].includes(provider)) throw new Error('Неизвестный провайдер AI.');
   const aiOptions = {
     key: options.aiKey ?? (provider === 'yandex' ? process.env.YANDEX_API_KEY : process.env.VOOOZ_AI_API_KEY ?? process.env.OPENAI_API_KEY),
     folderId: options.folderId ?? process.env.YANDEX_FOLDER_ID,
-    model: options.model ?? (provider === 'yandex' ? process.env.YANDEX_MODEL : process.env.VOOOZ_AI_MODEL),
+    model: options.model ?? (provider === 'ollama' ? process.env.OLLAMA_MODEL : provider === 'yandex' ? process.env.YANDEX_MODEL : process.env.VOOOZ_AI_MODEL),
+    baseUrl: options.ollamaUrl ?? process.env.OLLAMA_BASE_URL,
     fetchImpl: options.fetchImpl,
     cacheDir: options.cacheDir === false ? undefined : options.cacheDir ?? resolve(root, '.cache/research'),
   };
-  const ai = provider === 'yandex' ? createYandexResearch(aiOptions) : createResearch(aiOptions);
+  const ai = provider === 'ollama' ? createOllamaResearch(aiOptions) : provider === 'yandex' ? createYandexResearch(aiOptions) : createResearch(aiOptions);
+  const evidenceCollector = provider === 'ollama' ? options.evidenceCollector ?? createEvidenceCollector({ fetchImpl: options.evidenceFetchImpl, maxTextChars: 6000 }) : null;
+  let localStatus = { available: false, modelInstalled: false };
+  let healthCheckedAt = 0, healthPending;
+  async function refreshLocalStatus() {
+    if (provider !== 'ollama' || Date.now() - healthCheckedAt < 10_000) return;
+    if (healthPending) return healthPending;
+    healthPending = (async () => {
+      try { localStatus = await ai.checkHealth(); }
+      catch { localStatus = { available: false, modelInstalled: false }; }
+      healthCheckedAt = Date.now();
+    })();
+    try { await healthPending; } finally { healthPending = undefined; }
+  }
+  const aiAvailable = () => ai.configured && (provider !== 'ollama' || localStatus.available && localStatus.modelInstalled);
+  const unavailableNotice = () => provider !== 'ollama' ? noKeyNotice
+    : localStatus.available ? 'Модель Qwen ещё не загружена на сервер. Пока доступен подбор по каталогу.'
+      : 'Локальная нейросеть пока не запущена. Показан подбор по каталогу.';
+  const researchError = e => provider !== 'ollama' ? publicAiError(e)
+    : e.message === 'AI_EVIDENCE' ? 'Не удалось загрузить официальные страницы вузов. Показан каталог; баллы и места без источников не оцениваются.'
+      : e.name === 'TimeoutError' || e.name === 'AbortError' ? 'Локальная модель не успела ответить. Пока показан подбор по каталогу.'
+        : 'Локальная Qwen сейчас недоступна или вернула неполный ответ. Показан подбор по каталогу.';
   const dynamic = new Map();
   const requests = new Map();
-  const aiInfo = used => ({ configured: ai.configured, used, provider: provider === 'yandex' ? 'Yandex AI Studio' : 'OpenAI', model: ai.model });
+  const aiInfo = used => ({ configured: aiAvailable(), used, provider: provider === 'ollama' ? 'Qwen · Ollama' : provider === 'yandex' ? 'Yandex AI Studio' : 'OpenAI', model: ai.model });
   const allUniversities = () => [...catalog.universities, ...dynamic.values()];
   const rateLimit = req => {
     const ip = req.socket.remoteAddress;
@@ -70,6 +95,8 @@ export async function createServer(options = {}) {
   };
 
   async function searchCity(cityId) {
+    // The local model cannot discover arbitrary websites without a search service.
+    if (provider === 'ollama') return [];
     const city = catalog.cities.find(c => c.id === cityId);
     const answer = await ai.research('universities_in_city', {
       city: city.name,
@@ -87,18 +114,19 @@ export async function createServer(options = {}) {
     try {
       const url = new URL(req.url, 'http://localhost');
       const path = url.pathname;
-      if (path === '/api/health' && req.method === 'GET') return json(res, 200, { ok: true, ai: aiInfo(false), telegram: { configured: Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_WEBAPP_URL) } });
+      if (path.startsWith('/api/')) await refreshLocalStatus();
+      if (path === '/api/health' && req.method === 'GET') return json(res, 200, { ok: true, ai: aiInfo(false), ...(provider === 'ollama' ? { ollama: { available: Boolean(localStatus.available), modelInstalled: Boolean(localStatus.modelInstalled) } } : {}), telegram: { configured: Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_WEBAPP_URL) } });
       if (path === '/api/catalog' && req.method === 'GET') return json(res, 200, { ...catalog, ai: aiInfo(false) });
       if (path === '/api/universities' && req.method === 'GET') {
         const city = str(url.searchParams.get('city'), 100);
         const q = str(url.searchParams.get('q'), 100).toLocaleLowerCase('ru');
         const category = str(url.searchParams.get('category'), 100).toLocaleLowerCase('ru');
         if (city && !catalog.cities.some(c => c.id === city)) throw error('Город не найден.', 404);
-        let notice = ai.configured ? undefined : noKeyNotice, used = false;
-        if (city && ai.configured && !allUniversities().some(u => u.cityId === city)) {
+        let notice = aiAvailable() ? undefined : unavailableNotice(), used = false;
+        if (city && provider !== 'ollama' && aiAvailable() && !allUniversities().some(u => u.cityId === city)) {
           rateLimit(req);
           try { const found = await searchCity(city); used = true; if (!found.length) notice = 'В проверенных источниках вузы не найдены. Попробуйте другой город или повторите поиск позже.'; }
-          catch (e) { notice = publicAiError(e); }
+          catch (e) { notice = researchError(e); }
         }
         const universities = filterUniversities({ ...catalog, universities: allUniversities() }, { city, q, category });
         return json(res, 200, { universities, ai: aiInfo(used), notice });
@@ -107,16 +135,18 @@ export async function createServer(options = {}) {
         const id = decodeURIComponent(path.split('/').pop());
         let university = allUniversities().find(u => u.id === id);
         if (!university) throw error('Вуз не найден.', 404);
-        let used = false, notice = ai.configured ? undefined : noKeyNotice;
-        if (ai.configured && url.searchParams.get('research') === '1') {
+        let used = false, notice = aiAvailable() ? undefined : unavailableNotice();
+        if (aiAvailable() && url.searchParams.get('research') === '1') {
           rateLimit(req);
           try {
-            const answer = await ai.research('university_details', { university: university.name, website: university.website, request: 'Подготовь описание, сильные направления и особенности обучения по официальному сайту. Формат {"description":"кратко","details":"2-3 абзаца","tags":["направление"]}. Не возвращай непроверенные баллы или цены.' });
+            const evidence = provider === 'ollama' ? (await evidenceCollector.collect([university])).documents : undefined;
+            if (provider === 'ollama' && !evidence?.length) throw new Error('AI_EVIDENCE');
+            const answer = await ai.research('university_details', { university: university.name, website: university.website, ...(evidence ? { evidence } : {}), request: 'Подготовь описание, сильные направления и особенности обучения по официальному сайту. Формат {"description":"кратко","details":"2-3 абзаца","tags":["направление"]}. Не возвращай непроверенные баллы или цены.' });
             if ([...answer.sources].some(s => sameOrganization(s, university.website))) {
               university = { ...university, description: str(answer.result.description, 800) || university.description, details: str(answer.result.details, 3000) || university.details, sources: [...answer.sources].filter(s => sameOrganization(s, university.website)).slice(0, 5), aiGenerated: true };
               used = true;
             } else notice = 'В официальных источниках нет подтверждения для обновления описания. Показана справочная карточка.';
-          } catch (e) { notice = publicAiError(e); }
+          } catch (e) { notice = researchError(e); }
         }
         return json(res, 200, { university, ai: aiInfo(used), notice });
       }
@@ -125,17 +155,20 @@ export async function createServer(options = {}) {
         const { profile } = localResult;
         let candidates = filterUniversities({ ...catalog, universities: allUniversities() }, { city: profile.city });
         let recommendations = localResult.recommendations;
-        let used = false, notice = ai.configured ? undefined : noKeyNotice;
-        if (ai.configured) {
+        let used = false, notice = aiAvailable() ? undefined : unavailableNotice();
+        if (aiAvailable()) {
           rateLimit(req);
           try {
             if (profile.city && !candidates.length) { await searchCity(profile.city); candidates = allUniversities().filter(u => u.cityId === profile.city); recommendations = localRecommendations(candidates, profile, catalog); }
             // Limit research to a relevant shortlist. Each search covers up to five official domains.
-            const shortlist = localRecommendations(candidates, profile, catalog, 5).map(r => r.university);
+            const shortlist = localRecommendations(candidates, profile, catalog, provider === 'ollama' ? 3 : 5).map(r => r.university);
+            const evidence = provider === 'ollama' ? (await evidenceCollector.collect(shortlist)).documents : undefined;
+            if (provider === 'ollama' && !evidence?.length) throw new Error('AI_EVIDENCE');
             const answer = await ai.research('admissions_recommendations', {
               profile,
               universities: shortlist.map(u => ({ id: u.id, name: u.name, website: u.website })),
-              request: admissionsRequest,
+              ...(evidence ? { evidence } : {}),
+              request: provider === 'ollama' ? localAdmissionsRequest : admissionsRequest,
             });
             const proposed = answer?.result.recommendations;
             if (Array.isArray(proposed)) {
@@ -147,7 +180,7 @@ export async function createServer(options = {}) {
                 seen.add(university.id);
                 const admission = validateAdmissionProgram(item.admission, answer.sources, university, profile);
                 // Legacy alternative provider data remains source checked; it never becomes a chance.
-                const passingScore = validatePassingScore(item.passingScore, answer.sources, university, profile.exams);
+                const passingScore = provider === 'openai' ? validatePassingScore(item.passingScore, answer.sources, university, profile.exams) : null;
                 return [{ university, reason: str(item.reason, 1000) || localReason(university, profile.specialty), admission, passingScore, subjectMatch: admission?.subjectMatch ?? passingScore?.subjectMatch ?? null }];
               }).sort((a, b) => {
                 const priority = r => r.admission?.eligible === true ? 2 : r.admission?.eligible === false ? 0 : 1;
@@ -163,7 +196,7 @@ export async function createServer(options = {}) {
               }
               else notice = 'Не удалось подтвердить рекомендации по официальным источникам. Показаны вузы справочного каталога.';
             } else notice = 'Ответ нейросети не содержит проверяемых рекомендаций. Показан справочный каталог.';
-          } catch (e) { notice = publicAiError(e); }
+          } catch (e) { notice = researchError(e); }
         }
         return json(res, 200, {
           ...localResult, recommendations, ai: aiInfo(used), notice,
@@ -186,7 +219,7 @@ export async function createServer(options = {}) {
       json(res, status, { error: status === 500 ? 'Не удалось обработать запрос. Попробуйте ещё раз.' : e.message });
     }
   });
-  server.requestTimeout = 70_000;
+  server.requestTimeout = 240_000;
   return server;
 }
 

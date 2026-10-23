@@ -1,7 +1,7 @@
 import catalog from '../data/catalog.json';
 import { createCatalogRecommendations, filterUniversities } from '../shared/catalog.mjs';
 
-const ai = { configured: false, used: false, provider: 'Yandex AI Studio' };
+const ai = { configured: false, used: false, provider: 'Qwen · Ollama' };
 
 function response(body, status = 200) {
   return new Response(JSON.stringify(body), {

@@ -16,7 +16,12 @@
     "start": "node --env-file-if-exists=.env server/index.mjs",
     "bot": "node --env-file-if-exists=.env server/telegram.mjs",
     "test": "node --test tests/*.test.mjs",
-    "test:e2e": "npm run build:standalone && playwright test"
+    "test:e2e": "npm run build:standalone && playwright test",
+    "ai:install": "bash scripts/setup-ollama.sh install",
+    "ai:serve": "bash scripts/setup-ollama.sh serve",
+    "ai:pull": "bash scripts/setup-ollama.sh pull",
+    "ai:check": "bash scripts/setup-ollama.sh check",
+    "ai:smoke": "bash scripts/setup-ollama.sh smoke"
   },
   "dependencies": {
     "@fontsource/golos-text": "^5.3.0",
